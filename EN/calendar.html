@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar</title>
+    <style>
+      /* Full-width header styling */
+      .header {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        text-align: center;
+        height: 5vh;
+        padding: 10px 0;
+        font-size: 1.5em;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000; /* Ensures header stays on top */
+      }
+
+      /* Body styling with transparent background image */
+      body {
+        margin: 0;
+        font-family: "Arial";
+        background: black;
+        background-size: cover;
+        min-height: 100vh; /* Ensure the body stretches to the viewport height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Heading image */
+      #headingimage_mob,
+      #headingimage_pc {
+        display: none;
+      }
+
+      @media (max-width: 750px) {
+        #headingimage_mob {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      /* Show picture_2 for larger screens (screen width greater than 800px) */
+      @media (min-width: 751px) {
+        #headingimage_pc {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      /* AUTHOR SITE */
+
+      /* Text banner styling */
+      .text {
+        background-color: rgba(256, 256, 256, 0);
+        display: block;
+        color: #e7c885;
+        text-align: center;
+        padding: 1%;
+        font-size: 30%;
+        margin-bottom: 1vh;
+      }
+
+      /* NAVIGATION BAR */
+
+      /* Banner container with black border and black background */
+      .navbar {
+        position: fixed;
+        top: 1vh; /* Aligns navbar at the top of the screen */
+        right: 5vh; /* Positions navbar on the right side */
+        display: flex;
+        flex-direction: column; /* Displays banners vertically on the right */
+        align-items: flex-end; /* Aligns content to the right within the navbar */
+        background-color: rgba(0, 0, 0, 0); /* Transparent background */
+        border-radius: 7px;
+      }
+
+      /* Hover effect for links */
+      .navbar a:hover {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+      }
+
+      /* Optional styling for text */
+      .transparent-text {
+        color: rgba(256, 256, 256, 0);
+        font-size: 3vh;
+        font-weight: lighter;
+      }
+    </style>
+
+    <style>
+      /* Styling for the main heading */
+      h1 {
+        font-size: 32px; /* Set the font size */
+        font-weight: bold; /* Make it bold */
+        color: #e7c885; /* Text color */
+        text-align: center; /* Center-align the text */
+        margin-top: 1dvh;
+        margin-bottom: 3dvh;
+        margin-left: 12.5dvw;
+        margin-right: 12.5dvw;
+      }
+
+      /* Styling for the subheading */
+      h2 {
+        font-size: 22px; /* Smaller than h1 */
+        color: #ffffff;
+        text-align: center; /* Text color */
+        margin-top: 3dvh;
+        margin-bottom: 1dvh;
+        margin-left: 12.5dvw;
+        margin-right: 12.5dvw;
+      }
+
+      /* Styling for paragraph text */
+      p {
+        font-size: 18px; /* Font size */
+        line-height: 1.6; /* Spacing between lines */
+        color: #c0c0b7;
+        text-align: justify; /* Text color */
+        margin-top: 3dvh;
+        margin-bottom: 1dvh;
+        margin-left: 12.5dvw;
+        margin-right: 12.5dvw;
+      }
+    </style>
+
+    <style>
+      .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centers both the slider and form horizontally */
+        gap: 20px; /* Space between the slider and the form */
+        width: 100%; /* Ensures the content spans the available width */
+        max-width: 800px; /* Optional: Limits the maximum width for large screens */
+        padding: 20px; /* Adds some padding for better visuals */
+        justify-content: center;
+      }
+
+      /* Style for the image container */
+      .slider-container {
+        max-width: 1500px;
+        text-align: center; /* Center-aligns the slider buttons */
+        display: block; /* Keeps the slider layout intact */
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Style for the images inside the container */
+      .slider-container {
+        position: relative; /* Added relative positioning */
+        max-width: 1500px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Slider button styling */
+      .slider-button {
+        position: absolute; /* Position them absolutely inside the container */
+        top: 50%; /* Center vertically */
+        transform: translateY(-50%); /* Adjust for perfect centering */
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0
+        ); /* Slight background to make it visible */
+        color: #000000ac;
+        border: none;
+        padding: 15px;
+        cursor: pointer;
+        font-size: 3vw;
+        z-index: 10; /* Ensure buttons are on top */
+        opacity: 0.8;
+      }
+
+      .slider-button:hover {
+        opacity: 1;
+      }
+
+      .prev-button {
+        left: 12vw;
+      }
+
+      .next-button {
+        right: 12vw;
+      }
+
+      /* Dots navigation */
+      .dots-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .dot {
+        height: 10px;
+        width: 10px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .active-dot {
+        background-color: #717171;
+      }
+    </style>
+
+    <style>
+      /* Form container styling */
+      .form-container {
+        background-color: black;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 80vw;
+        max-width: 600px;
+        position: relative;
+      }
+
+      .form-container h2 {
+        color: #e7c885;
+        font-size: 2.5vh;
+        text-align: center;
+      }
+
+      .form-container input,
+      .form-container textarea {
+        width: 100%;
+        padding: 1vh;
+        margin: 10px 0;
+        color: #000000;
+        background-color: #b7ad9b;
+        border: 2px solid #e7c885;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      .form-container button {
+        width: 100%;
+        padding: 1vh;
+        background-color: rgba(0, 0, 0, 0);
+        color: #e7c885;
+        border: 2px solid #e7c885;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 3dvh;
+      }
+
+      .form-container button:hover {
+        background-color: #e7c885;
+        color: #000;
+      }
+
+      .form-container label {
+        color: #e7c885;
+        font-size: 2dvh;
+      }
+
+      /* Centering the loader */
+      .loading-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        background-color: #000000;
+      }
+
+      /* The loader */
+      .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #ccc; /* Light gray border */
+        border-top: 5px solid #333; /* Darker border on top */
+        border-radius: 50%; /* Make it a circle */
+        animation: spin 1s linear infinite;
+      }
+
+      /* Spinner animation */
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="navbar">
+        <style>
+          .navbar {
+            position: fixed;
+            top: 1vh; /* Aligns navbar at the top of the screen */
+            right: 5vh; /* Positions navbar on the right side */
+            display: flex;
+            flex-direction: row; /* Displays banners vertically on the right */
+            align-items: flex-end; /* Aligns content to the right within the navbar */
+          }
+
+          .navbar a {
+            text-decoration: none;
+            color: #e7c885;
+            padding: 1vh 1.5dvw;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius: 5px;
+            font-size: 2dvh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+          }
+
+          .navbar_SK {
+            position: fixed;
+            top: 1vh; /* Aligns navbar at the top of the screen */
+            left: 3vh; /* Positions navbar on the right side */
+            display: flex;
+            flex-direction: row; /* Displays banners vertically on the right */
+            align-items: flex-end; /* Aligns content to the right within the navbar */
+          }
+        </style>
+        <a class="navbar_SK" href="../SK/calendar.html" target="_self">SK</a>
+        <a class="navbra_offer" href="Home_FINAL.html" target="_self">Home</a>
+        <a class="navbra_offer" href="Gallery_FINAL.html" target="_self"
+          >Gallery</a
+        >
+        <a class="navbra_author" href="Author_FINAL.html" target="_self"
+          >Author</a
+        >
+        <a class="navbra_offer" href="Write us_FINAL.html" target="_self"
+          >Write us</a
+        >
+      </div>
+    </header>
+
+    <div>
+      <img
+        id="headingimage_pc"
+        src="https://drive.google.com/thumbnail?id=1isUX4i69sEv5V8HOS7eisABgOzqr0cA4&sz=w3000"
+        alt="Something went wrong"
+      />
+      <img
+        id="headingimage_mob"
+        src="https://drive.google.com/thumbnail?id=1OhvB5wqfalRhLbB_JWamGF7Id21kg3Gt&sz=w2000"
+        alt="Something went wrong"
+      />
+    </div>
+
+    <h2>
+      If you liked my photos, I have prepared a photo calendar for you for 2025.
+      It consists of author's photographs taken during 2024. If you are
+      interested, contact me below (price negotiable).
+    </h2>
+
+    <div class="text"></div>
+
+    <div class="content-wrapper">
+      <div class="slider-container">
+        <button class="slider-button prev-button" onclick="prevImage()">
+          ❮
+        </button>
+        <img class="slider-image" src="image1.jpg" alt="Image 1" />
+        <button class="slider-button next-button" onclick="nextImage()">
+          ❯
+        </button>
+      </div>
+
+      <div class="dots-container"></div>
+
+      <div class="text"></div>
+
+      <h1>Contact me here</h1>
+
+      <div class="form-container">
+        <div class="text"></div>
+
+        <form
+          action="https://formsubmit.co/45865a999103601872e05c5ba84f18b4"
+          method="POST"
+        >
+          <label for="email">Your Email:</label>
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+          />
+
+          <div class="text"></div>
+
+          <label for="message">Your Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="4"
+            placeholder="Write your message"
+          ></textarea>
+
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_next"
+            value="http://127.0.0.1:5500/EN/thankyousite.html"
+          />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_subject" value="Calendar" />
+
+          <button type="submit" id="sendButton">Send</button>
+        </form>
+        <div id="statusMessage">
+          <div class="loading-container">
+            <div class="spinner"></div>
+          </div>
+          SENDING
+        </div>
+      </div>
+    </div>
+
+    <iframe
+      src="footer.html"
+      style="width: 100%; height: 200px; border: none"
+    ></iframe>
+  </body>
+
+  <style>
+    /* Message styling */
+    #statusMessage {
+      font-size: 22px; /* Smaller than h1 */
+      color: #e7c885;
+      text-align: center; /* Text color */
+      margin-top: 3dvw;
+      margin-bottom: 1dvw;
+      margin-left: 12.5dvw;
+      margin-right: 12.5dvw;
+      opacity: 0; /* Fully visible initially */
+      transition: opacity 0.5s ease; /* Smooth transition */
+    }
+  </style>
+
+  <script>
+    // Image URLs
+    const images = [
+      "https://drive.google.com/thumbnail?id=1WvAlsun8zqkru9b-FVPYP0Q-rFbRa-MB&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1sWneeNpzKhmHofxMW6_6l_zuxildN5Uj&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1-ZXr43Q0xgu_Qol7irq_Y1qVXs2kGqVp&sz=w1000",
+      "https://drive.google.com/thumbnail?id=14Qd5qUKW9ZDYYehuY-pafon5BwC4Kzyp&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1wbUSXUSdjRZ5zo2MHXD7ivkKEnE-ZOiN&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1k2GeaSlqe79zOHksCsaerdafZ69i8k12&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1bFMT1CfOuT-5baicOh-tnyCVSdcDdjLP&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1x2HmOl6G8Vngicd9zKnqmL-dP8EV1u_Z&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1u4TZq9cIhvm3L6KZTpc3fd1ti7aTOduW&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1Q-e-Q8QpkLal0nbf0m5gnIoyn6DVKptU&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1QuTIe5HYfdxAzbMXwZ1ihAnCZY_nq1nr&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1C6l1wN1xWk-dF7H54FF0FXRo4GZJt9Ny&sz=w1000",
+      "https://drive.google.com/thumbnail?id=1lnigsYYg2wHtckGFcyzoMMEkjqYJskIX&sz=w1000",
+    ];
+
+    let currentIndex = 0;
+    const imageElement = document.querySelector(".slider-image");
+    const dotsContainer = document.querySelector(".dots-container");
+
+    // Function to update the displayed image
+    function updateImage() {
+      const imageUrl = images[currentIndex];
+      imageElement.src = imageUrl;
+      updateDots();
+    }
+
+    // Function to create dots based on the number of images
+    function createDots() {
+      images.forEach((_, index) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.addEventListener("click", () => goToImage(index));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    // Function to update the active dot
+    function updateDots() {
+      const dots = document.querySelectorAll(".dot");
+      dots.forEach((dot) => dot.classList.remove("active-dot"));
+      dots[currentIndex].classList.add("active-dot");
+    }
+
+    // Function to go to the next image
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateImage();
+    }
+
+    // Function to go to the previous image
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateImage();
+    }
+
+    // Function to go to a specific image
+    function goToImage(index) {
+      currentIndex = index;
+      updateImage();
+    }
+
+    // Function to handle keyboard arrow navigation
+    function handleKeyboardNavigation(event) {
+      if (event.key === "ArrowRight") {
+        nextImage();
+      } else if (event.key === "ArrowLeft") {
+        prevImage();
+      }
+    }
+
+    // Initialize the slider
+    function initializeSlider() {
+      createDots();
+      updateImage();
+    }
+
+    window.onload = initializeSlider;
+  </script>
+
+  <script>
+    const button = document.getElementById("sendButton");
+    const statusMessage = document.getElementById("statusMessage");
+
+    // Add click event listener to the button
+    button.addEventListener("click", () => {
+      // Change the transparency of the message
+      statusMessage.style.opacity = "1";
+    });
+  </script>
+</html>

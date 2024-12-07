@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photosite Template</title>
+    <style>
+      /* Full-width header styling */
+      .header {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        text-align: center;
+        height: 5vh;
+        padding: 10px 0;
+        font-size: 1.5em;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000; /* Ensures header stays on top */
+      }
+
+      /* Body styling with transparent background image */
+      body {
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        font-family: "Arial";
+        background: url("https://drive.google.com/thumbnail?id=1oecLPaqTdLgZbEBZImjJ-0wLOgsJQ-Gx&sz=w1000")
+          no-repeat center center fixed; /* Replace with your image URL */
+        background-size: cover;
+      }
+
+      /* IMAGE SITE */
+
+      /* Background overlay for additional transparency */
+      .background-overlay {
+        position: fixed;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.1); /* Adjust the opacity here */
+      }
+
+      /* Image row styling */
+      .image-row {
+        display: flex;
+        justify-content: center;
+        gap: 3%;
+        padding: 3%;
+        margin-bottom: 0vh;
+        font-size: 20vh;
+      }
+
+      /* Text banner styling */
+      .text {
+        background-color: rgba(256, 256, 256, 0);
+        display: block;
+        color: #e7c885;
+        text-align: center;
+        padding: 1%;
+        font-size: 30%;
+        margin-bottom: 1vh;
+      }
+
+      /* Banner container */
+      .banner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+        padding: 10%, 10%;
+        border-radius: 7px;
+        font-size: 20%;
+      }
+
+      /* Link styling */
+      .banner a {
+        text-decoration: none;
+        justify-content: center;
+        align-items: center;
+        color: rgba(256, 256, 256, 0.5);
+        padding: 10%, 10%;
+        font-size: 1;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Hover effect for links */
+      .banner a:hover {
+        background-color: rgba(256, 256, 256, 0);
+        color: white;
+      }
+
+      /* Responsive image styling */
+      .frame img {
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        max-height: 100%;
+        width: 90vh;
+        height: auto;
+      }
+
+      /* Optional styling for text */
+      .transparent-text {
+        font-size: 3vh;
+        font-weight: lighter;
+      }
+
+      /* Banner container with black border and black background */
+      .linker {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5vh;
+        padding: 1vh, 1vh;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid rgba(0, 0, 0, 0); /* White border around banner */
+        border-radius: 7px;
+      }
+
+      /* Link styling with white text and border */
+      .linker a {
+        text-decoration: none;
+        color: #e7c885;
+        padding: 1vh 1vh;
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #e7c885; /* White border around each link */
+        border-radius: 5px;
+        font-size: 4vh;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Hover effect for links */
+      .linker a:hover {
+        background-color: #e7c885;
+        color: #000;
+      }
+
+      /* HIDE MOBILE CONTENT */
+
+      /* Hide the mobile content by default */
+      .mobile-only {
+        display: none;
+      }
+
+      /* Display the content only on screens 768px or smaller */
+      @media only screen and (max-width: 1500px) {
+        .mobile-only {
+          display: block;
+          font-size: 1.5em;
+          color: rgba(256, 256, 256, 0);
+          text-align: center;
+          margin-top: 20px;
+        }
+      }
+
+      /* NAVIGATION BAR */
+
+      /* Banner container with black border and black background */
+      .navbar {
+        position: fixed;
+        top: 1vh; /* Aligns navbar at the top of the screen */
+        right: 5vh; /* Positions navbar on the right side */
+        display: flex;
+        flex-direction: column; /* Displays banners vertically on the right */
+        align-items: flex-end; /* Aligns content to the right within the navbar */
+        background-color: rgba(0, 0, 0, 0); /* Transparent background */
+        border-radius: 7px;
+      }
+
+      /* Hover effect for links */
+      .navbar a:hover {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+      }
+
+      /* Basic footer styling */
+      .footer {
+        width: 100%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        font-size: 1.5vh;
+        font-family: Arial, sans-serif;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        transform: translateY(100%); /* Initially hides the footer */
+        transition: transform 0.3s ease;
+      }
+
+      /* Footer visible state */
+      .footer.visible {
+        transform: translateY(0); /* Slides the footer up into view */
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="navbar">
+        <style>
+          .navbar {
+            position: fixed;
+            top: 1vh; /* Aligns navbar at the top of the screen */
+            right: 5vh; /* Positions navbar on the right side */
+            display: flex;
+            flex-direction: row; /* Displays banners vertically on the right */
+            align-items: flex-end; /* Aligns content to the right within the navbar */
+          }
+
+          .navbar a {
+            text-decoration: none;
+            color: #e7c885;
+            padding: 1vh 1.5dvw;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius: 5px;
+            font-size: 2dvh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+          }
+        </style>
+
+        <a class="navbra_offer" href="Home_FINAL.html" target="_self">Home</a>
+        <a class="navbra_offer" href="Gallery_FINAL.html" target="_self"
+          >Gallery</a
+        >
+        <a class="navbra_author" href="Author_FINAL.html" target="_self"
+          >Author</a
+        >
+        <a class="navbra_offer" href="Write us_FINAL.html" target="_self"
+          >Write us</a
+        >
+      </div>
+    </header>
+
+    <!-- Overlay for transparency effect -->
+
+    <div class="text">
+      <div class="transparent-text"></div>
+      <div class="transparent-text"></div>
+    </div>
+
+    <div class="mobile-only">
+      This message is only visible on mobile devices. This message is only
+      visible on mobile devices...
+    </div>
+
+    <!-- Content -->
+    <div class="image-row">
+      <div class="banner">
+        <a href="https://example.com" target="_self"><</a>
+      </div>
+
+      <div class="frame">
+        <img
+          src="https://drive.google.com/thumbnail?id=12OqQ40hdccI2ojg6SwhqvhKPzfU-qhs5&sz=w1000"
+          alt="Full-Screen Image"
+        />
+      </div>
+
+      <div class="banner">
+        <a href="https://example.com" target="_self">></a>
+      </div>
+    </div>
+
+    <div class="text">
+      <div class="transparent-text">Latin name</div>
+
+      <div class="transparent-text">Slovak name</div>
+
+      <div class="transparent-text">English name</div>
+    </div>
+
+    <div class="text"></div>
+
+    <div class="linker">
+      <a href="http://127.0.0.1:5500/Gallery/Gallery_FINAL.html" target="_self"
+        >Back to gallery</a
+      >
+    </div>
+
+    <div class="text"></div>
+
+    <div class="text"></div>
+
+    <div class="text"></div>
+
+    <div class="text"></div>
+
+    <footer class="footer" id="footer">
+      &copy; fbwildlifephotography |
+      <a
+        href="mailto:fbjwildlife@gmai.com"
+        style="color: #e7c885; text-decoration: none"
+        >fbjwildlife@gmail.com</a
+      >
+      <div>All rights reserved</div>
+    </footer>
+
+    <!-- Left arrow on keyboard -->
+    <script>
+      // Function to redirect to the specified URL
+      function redirectToLeftSite() {
+        window.location.href = "http://127.0.0.1:5500/baner%20vh.html";
+      }
+
+      // Event listener for keydown
+      document.addEventListener("keydown", function (event) {
+        // Check if the left arrow key is pressed
+        if (event.key === "ArrowLeft") {
+          redirectToLeftSite(); // Call the redirect function
+        }
+      });
+    </script>
+
+    <!-- Right arrow on keyboard -->
+    <script>
+      // Function to redirect to the specified URL
+      function redirectToRightSite() {
+        window.location.href = "http://127.0.0.1:5500/baner%20vh.html";
+      }
+
+      // Event listener for keydown
+      document.addEventListener("keydown", function (event) {
+        // Check if the right arrow key is pressed
+        if (event.key === "ArrowRight") {
+          redirectToRightSite(); // Call the redirect function
+        }
+      });
+    </script>
+
+    <script>
+      // Function to toggle footer visibility based on scroll position
+      window.addEventListener("scroll", function () {
+        const footer = document.getElementById("footer");
+        const threshold = 100; // Distance in pixels from the bottom to trigger footer visibility
+        const scrolledToBottom =
+          window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - threshold;
+
+        // Toggle the 'visible' class based on whether near the bottom of the page
+        if (scrolledToBottom) {
+          footer.classList.add("visible");
+        } else {
+          footer.classList.remove("visible");
+        }
+      });
+    </script>
+  </body>
+</html>

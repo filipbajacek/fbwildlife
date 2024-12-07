@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photosite Template</title>
+    <link rel="stylesheet" href="styles_photo.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="navbar">
+        <style>
+          .navbar {
+            position: fixed;
+            top: 1vh; /* Aligns navbar at the top of the screen */
+            right: 5vh; /* Positions navbar on the right side */
+            display: flex;
+            flex-direction: row; /* Displays banners vertically on the right */
+            align-items: flex-end; /* Aligns content to the right within the navbar */
+          }
+
+          .navbar a {
+            text-decoration: none;
+            color: #e7c885;
+            padding: 1vh 1.5dvw;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius: 5px;
+            font-size: 2dvh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+          }
+        </style>
+
+        <a class="navbra_offer" href="Home_FINAL.html" target="_self">Home</a>
+        <a class="navbra_offer" href="Gallery_FINAL.html" target="_self"
+          >Gallery</a
+        >
+        <a class="navbra_author" href="Author_FINAL.html" target="_self"
+          >Author</a
+        >
+        <a class="navbra_offer" href="Write us_FINAL.html" target="_self"
+          >Write us</a
+        >
+      </div>
+    </header>
+
+    <div class="mobile-only">
+      This message is only visible on mobile devices. This message is only
+      visible on mobile devices... This message is only visible on mobile
+      devices...
+    </div>
+
+    <!-- Content -->
+    <div class="image-row">
+      <div class="banner">
+        <a href="23_35.html" target="_self"><</a>
+      </div>
+
+      <div class="frame">
+        <img
+          src="https://drive.google.com/thumbnail?id=1aRBJK4b5w5X1OsFy_1Urgn0U1KNBX4GZ&sz=w1200"
+          alt="Full-Screen Image"
+        />
+      </div>
+
+      <div class="banner">
+        <a href="22_355.html" target="_self">></a>
+      </div>
+    </div>
+
+    <div>
+      <h2>Fringilla coelebs</h2>
+      <h2>pinka lesná</h2>
+      <h2>common chaffinch</h2>
+    </div>
+
+    <div class="transparent-text">-</div>
+
+    <div class="linker">
+      <a style="font-size: 3dvh" id="dynamicLink" href="">Back to gallery</a>
+    </div>
+
+    <div class="transparent-text">-</div>
+
+    <div class="transparent-text">-</div>
+
+    <div class="transparent-text">-</div>
+
+    <div class="transparent-text">-</div>
+
+    <iframe
+      src="footer.html"
+      style="width: 100%; height: 200px; border: none"
+    ></iframe>
+
+    <!-- Left arrow on keyboard -->
+    <script>
+      // Function to redirect to the specified URL
+      function redirectToLeftSite() {
+        window.location.href = "23_35.html";
+      }
+
+      // Event listener for keydown
+      document.addEventListener("keydown", function (event) {
+        // Check if the left arrow key is pressed
+        if (event.key === "ArrowLeft") {
+          redirectToLeftSite(); // Call the redirect function
+        }
+      });
+    </script>
+
+    <!-- Right arrow on keyboard -->
+    <script>
+      // Function to redirect to the specified URL
+      function redirectToRightSite() {
+        window.location.href = "22_355.html";
+      }
+
+      // Event listener for keydown
+      document.addEventListener("keydown", function (event) {
+        // Check if the right arrow key is pressed
+        if (event.key === "ArrowRight") {
+          redirectToRightSite(); // Call the redirect function
+        }
+      });
+    </script>
+
+    <script>
+      // Function to toggle footer visibility based on scroll position
+      window.addEventListener("scroll", function () {
+        const footer = document.getElementById("footer");
+        const threshold = 100; // Distance in pixels from the bottom to trigger footer visibility
+        const scrolledToBottom =
+          window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - threshold;
+
+        // Toggle the 'visible' class based on whether near the bottom of the page
+        if (scrolledToBottom) {
+          footer.classList.add("visible");
+        } else {
+          footer.classList.remove("visible");
+        }
+      });
+    </script>
+
+    <script>
+      function setHrefBasedOnScreenSize() {
+        const link = document.getElementById("dynamicLink");
+
+        if (window.innerWidth <= 960) {
+          // Mobile view
+          link.href = "Gallery_FINAL.html#section_139"; // Link to section_01 for mobile
+        } else {
+          // PC view
+          link.href = "Gallery_FINAL.html#section_13"; // Link to section_02 for PC
+        }
+      }
+
+      // Run the function on load
+      window.addEventListener("load", setHrefBasedOnScreenSize);
+
+      // Optionally, re-run the function on resize to adapt if screen size changes
+      window.addEventListener("resize", setHrefBasedOnScreenSize);
+    </script>
+  </body>
+</html>
