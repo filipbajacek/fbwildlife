@@ -66,7 +66,7 @@
         }
 
         h2 {
-          font-size: 24px; /* Smaller than h1 */
+          font-size: 22px; /* Smaller than h1 */
           color: #ffffff;
           text-align: center; /* Text color */
           margin-top: 3dvh;
@@ -129,6 +129,8 @@
         margin-left: 12.5dvw;
         margin-right: 12.5dvw;
       }
+
+      /* Styling for the subheading */
 
       /* Styling for paragraph text */
       p {
@@ -198,7 +200,7 @@
         cursor: pointer;
         font-size: 4vw;
         z-index: 10; /* Ensure buttons are on top */
-        opacity: 1.0;
+        opacity: 1;
         width: 6vw;
         height: 6vw;
         border-radius: 50%;
@@ -357,7 +359,7 @@
             align-items: flex-end; /* Aligns content to the right within the navbar */
           }
         </style>
-        <a class="navbar_SK" href="../EN/calendar.html" target="_self">EN</a>
+        <a class="navbar_SK" href="../SK/calendar.html" target="_self">SK</a>
         <a class="navbra_offer" href="Home_FINAL.html" target="_self">Home</a>
         <a class="navbra_offer" href="Gallery_FINAL.html" target="_self"
           >Gallery</a
@@ -374,20 +376,20 @@
     <div>
       <img
         id="headingimage_pc"
-        src="https://drive.google.com/thumbnail?id=1qaQccQK8oTZsadj0in8GVyEowtKrnUlq&sz=w3000"
+        src="https://drive.google.com/thumbnail?id=1isUX4i69sEv5V8HOS7eisABgOzqr0cA4&sz=w3000"
         alt="Something went wrong"
       />
       <img
         id="headingimage_mob"
-        src="https://drive.google.com/thumbnail?id=1kvIB3q-yD8xkUxVRhxcF0ihU5fuvQDFN&sz=w2000"
+        src="https://drive.google.com/thumbnail?id=1OhvB5wqfalRhLbB_JWamGF7Id21kg3Gt&sz=w2000"
         alt="Something went wrong"
       />
     </div>
 
     <h2>
-      Ak sa vám moje fotky páčili, pripravil som pre vás fotokalendár na rok
-      2025. Pozostáva z autorských fotografií zhotovených počas roku 2024. Ak
-      máte záujem, kontaktujte ma nižšie (cena dohodou).
+      If you liked my photos, I have prepared a photo calendar for you for 2025.
+      It consists of author's photographs taken during 2024. If you are
+      interested, contact me below (price negotiable).
     </h2>
 
     <div class="text"></div>
@@ -407,7 +409,7 @@
 
       <div class="text"></div>
 
-      <h1>Kontaktujte ma tu</h1>
+      <h1>Contact me here</h1>
 
       <div class="form-container">
         <div class="text"></div>
@@ -416,36 +418,41 @@
           action="https://formsubmit.co/45865a999103601872e05c5ba84f18b4"
           method="POST"
         >
-          <label for="email">Váš email:</label>
-          <input type="email" name="email" required placeholder="Email" />
+          <label for="email">Your Email:</label>
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+          />
 
           <div class="text"></div>
 
-          <label for="message">Vaša správa:</label>
+          <label for="message">Your Message:</label>
           <textarea
             id="message"
             name="message"
             required
             rows="4"
-            placeholder="Vaša správa"
+            placeholder="Write your message"
           ></textarea>
 
           <input type="hidden" name="_captcha" value="false" />
           <input
             type="hidden"
             name="_next"
-            value="https://fbwildlife.com/SK/thankyousite.html"
+            value="http://127.0.0.1:5500/EN/thankyousite.html"
           />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_subject" value="Calendar" />
 
-          <button type="submit" id="sendButton">Poslať</button>
+          <button type="submit" id="sendButton">Send</button>
         </form>
         <div id="statusMessage">
           <div class="loading-container">
             <div class="spinner"></div>
           </div>
-          POSIELA SA
+          SENDING
         </div>
       </div>
     </div>
