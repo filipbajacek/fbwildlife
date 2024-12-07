@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery</title>
+    <style>
+      /* Full-width header styling */
+      .header {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        text-align: center;
+        height: 3.5dvh;
+        padding: 10px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000; /* Ensures header stays on top */
+      }
+
+      /* Body styling with transparent background image */
+      body {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        font-family: "Arial";
+        background: black;
+        background-size: cover;
+      }
+
+            /* Heading image */
+            #headingimage_mob, #headingimage_pc {
+        display: none;
+      }
+
+      @media (max-width: 750px) {
+            #headingimage_mob {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* Show picture_2 for larger screens (screen width greater than 800px) */
+      @media (min-width: 751px) {
+            #headingimage_pc {
+              display: block;
+              width: 100%;
+              height: auto;
+            }
+        }
+
+      .h2 {
+        color: #e7c885;
+        font-size: 2.5vh;
+        text-align: center;
+      }
+
+      /* GALLERY SITE */
+
+      /* Text banner styling */
+      .text {
+        background-color: rgba(256, 256, 256, 0);
+        display: block;
+        color: #e7c885;
+        text-align: center;
+        padding: 1%;
+        font-size: 30%;
+        margin-bottom: 1vh;
+        transition: transform 1s ease;
+      }
+
+      /* Style for the image container */
+      .slider-container {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        transition: transform 1s ease;
+      }
+
+      /* Style for the images inside the container */
+      .slider-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1s ease;
+      }
+
+      /* NAVIGATION BAR */
+
+      /* Banner container with black border and black background */
+      .navbar {
+        position: fixed;
+        top: 1vh; /* Aligns navbar at the top of the screen */
+        right: 5vh; /* Positions navbar on the right side */
+        display: flex;
+        flex-direction: column; /* Displays banners vertically on the right */
+        align-items: flex-end; /* Aligns content to the right within the navbar */
+        background-color: rgba(0, 0, 0, 0); /* Transparent background */
+        border-radius: 7px;
+      }
+
+      /* Hover effect for links */
+      .navbar a:hover {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+      }
+
+      /* Banner container with black border and black background */
+      .linker {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5vh;
+        padding: 1vh, 1vh;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid rgba(0, 0, 0, 0); /* White border around banner */
+        border-radius: 7px;
+      }
+
+      /* Link styling with white text and border */
+      .linker a {
+        text-decoration: none;
+        color: #e7c885;
+        padding: 1vh 1vh;
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #e7c885; /* White border around each link */
+        border-radius: 5px;
+        font-size: 2.5dvw;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Hover effect for links */
+      .linker a:hover {
+        background-color: #e7c885;
+        color: #000;
+      }
+    </style>
+    </style>
+
+    <style>
+      @media (min-width: 600px) {
+        .container_pc {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          margin: 40px 20px 0px 20px;
+        }
+
+        .container_pc .heading {
+          width: 50%;
+          padding-bottom: 1%;
+        }
+
+        .container_pc .heading h3 {
+          font-size: 3em;
+          color: #e7c885;
+          font-weight: bolder;
+          padding-bottom: 5px;
+          border-bottom: 3px solid #e7c885;
+        }
+
+        .container_pc .heading h3 span {
+          font-weight: 100;
+        }
+
+        .container_pc .gallery {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+
+        .container_pc .gallery .dream {
+          display: flex;
+          flex-direction: column;
+          width: 32.5%;
+        }
+
+        .container_pc .gallery img {
+          width: 100%;
+          padding-bottom: 2vh;
+          transition: transform 0.3s ease;
+        }
+
+        .container_pc img:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .container_pc {
+          display: none;
+        }
+
+        .container_pc .gallery > [id] {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .container_mob {
+          display: flex;
+          width: 100vw;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+
+        .container_mob .heading {
+          width: 50%;
+          padding-bottom: 1%;
+        }
+
+        .container_mob .heading h3 {
+          font-size: 1em;
+          color: #e7c885;
+          font-weight: bolder;
+          padding-bottom: 5px;
+          border-bottom: 3px solid #e7c885;
+        }
+
+        .container_mob .heading h3 span {
+          font-weight: 100;
+        }
+
+        .container_mob .gallery {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .container_mob .gallery .dream {
+          width: 80dvw;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .container_mob .gallery img {
+          width: 100%;
+          padding-bottom: 2vh;
+          justify-content: center;
+          align-items: center;
+          transition: transform 0.3s ease;
+        }
+
+        .container_mob img:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      @media (min-width: 600px) {
+        .container_mob {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: 620px) {
+        .container_pc .heading {
+          width: 100%;
+        }
+
+        .container_pc .heading h3 {
+          font-size: 2em;
+        }
+      }
+
+      /* SCROL DOWN _ PC ONLY */
+      .pc-only {
+        display: none;
+      }
+
+      /* Display the content only on screens 768px or smaller */
+      @media only screen and (min-width: 1920px) {
+        .pc-only {
+          display: block;
+          font-size: 1.5em;
+          color: rgb(231, 200, 133, 0.35);
+          text-align: center;
+          margin-top: 20px;
+          position: absolute;
+          top: 13vh;
+          width: 100%;
+          height: 58%;
+          justify-content: center;
+          align-items: center;
+          background-color: rgba(0, 0, 0, 0);
+          font-size: 9vh;
+          font-weight: bold;
+        }
+      }
+
+      .textfield {
+        margin: 20px;
+        font-size: 1dvh"
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="navbar">
+        <style>
+          .navbar {
+            position: fixed;
+            top: 1vh; /* Aligns navbar at the top of the screen */
+            right: 5vh; /* Positions navbar on the right side */
+            display: flex;
+            flex-direction: row; /* Displays banners vertically on the right */
+            align-items: flex-end; /* Aligns content to the right within the navbar */
+          }
+
+          .navbar a {
+            text-decoration: none;
+            color: #e7c885;
+            padding: 1vh 1.5dvw;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius: 5px;
+            font-size: 2dvh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+          }
+
+          .navbar_EN {
+            position: fixed;
+            top: 1vh; /* Aligns navbar at the top of the screen */
+            left: 3vh; /* Positions navbar on the right side */
+            display: flex;
+            flex-direction: row; /* Displays banners vertically on the right */
+            align-items: flex-end; /* Aligns content to the right within the navbar */
+          }
+        </style>
+        <a class="navbar_EN" href="../EN/Gallery_FINAL.html" target="_self">EN</a>
+        <a class="navbra_offer" href="Home_FINAL.html" target="_self">Home</a>
+        <a class="navbra_offer" href="Gallery_FINAL.html" target="_self"
+          >Gallery</a
+        >
+        <a class="navbra_author" href="Author_FINAL.html" target="_self"
+          >Author</a
+        >
+        <a class="navbra_offer" href="Write us_FINAL.html" target="_self"
+          >Write us</a
+        >
+      </div>
+    </header>
+
+    <div>
+      <img id="headingimage_pc" src="https://drive.google.com/thumbnail?id=1iVlWdjx22CJpzx2F8JSkXxHd1r_HK-l6&sz=w3000" alt="Something went wrong">
+      <img id="headingimage_mob" src="https://drive.google.com/thumbnail?id=1_RzHWlR2z8eWLGHbdOMUepQ36M92IyNi&sz=w2000" alt="Something went wrong">
+    </div>
+
+    <div class="container_pc">
+      <div class="heading">
+        <h3>Galéria <span>fotiek</span></h3>
+      </div>
+      <div class="gallery" id="gallerypc">
+        <div class="dream">
+          <!-- 1 -->
+          <a id="section_01" href="24_40.html" target="_self" data-number="1"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1QVS_hXsdqRYCWDoKHta7ZOCdFLAJff_m&sz=w1000"
+          /></a>
+
+          <!-- 4 -->
+          <a id="section_02" href="24_33.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1WnSObIzau2rwZoqhjgqwD7WGNR0GiKJU&sz=w1000"
+              data-number="4"
+          /></a>
+
+          <!-- 7 -->
+          <a id="section_03" href="24_28.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1daly6IZiJkVYs4BzLyQvwMxsTUTyXy7p&sz=w1000"
+              data-number="7"
+          /></a>
+
+          <!-- 10 -->
+          <a id="section_04" href="24_21.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1C42EQhsJ7bxXnkemgX9GUp8ogdfHG9sv&sz=w1000"
+              data-number="10"
+          /></a>
+
+          <!-- 13 -->
+          <a id="section_05" href="24_16.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1bgBxMue0tL3n8glfbJV1wUs69qD9Ue6G&sz=w1000"
+              data-number="13"
+          /></a>
+
+          <!-- 16 -->
+          <a id="section_06" href="24_13.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=177jQwaskrhDmXY522abGdFcztg_-MG_p&sz=w1000"
+              data-number="16"
+          /></a>
+
+          <!-- 19 -->
+          <a id="section_02" href="24_09.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1tFRGe5bdZnoFUFDl5h4R1gZrv7PrFQM4&sz=w1000"
+              data-number="19"
+          /></a>
+
+          <!-- 22 -->
+          <a id="section_08" href="24_06.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1rVpGuw87nZjchXHNC4sSK1bBJ_A9ynxr&sz=w1000"
+              data-number="22"
+          /></a>
+
+          <!-- 25 -->
+          <a id="section_09" href="24_01.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1IOVDhquVGe170_xDCjiKTIYRIBEP9td4&sz=w1000"
+              data-number="25"
+          /></a>
+
+          <!-- 28 -->
+          <a id="section_10" href="23_45.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1VNMp1g_In0E_THqPdkKQqBbq5ltDAWIF&sz=w1000"
+              data-number="28"
+          /></a>
+
+          <!-- 31 -->
+          <a id="section_11" href="23_42.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1JKEfzVmNkqXBjZAuSUI9ss74LP4cOZUd&sz=w1000"
+              data-number="31"
+          /></a>
+
+          <!-- 34 -->
+          <a id="section_12" href="23_39.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=15cGS8pmdfWraVtxT3R-QC-nKV69yyHVi&sz=w1000"
+              data-number="34"
+          /></a>
+
+          <!-- 37 -->
+          <a id="section_13" href="23_36.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1yNSt1buhBSonZS9TPNxQZLSCCKh2zgGa&sz=w1000"
+              data-number="37"
+          /></a>
+
+          <!-- 40 -->
+          <a id="section_14" href="22_355.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1ODZ_-s6yosFTpcS_rfGhWkuR_XI5NoQ3&sz=w1000"
+              data-number="40"
+          /></a>
+
+          <!-- 43 -->
+          <a id="section_15" href="22_31.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1yEmNskQpzroJObvuOfXgFFSrt0aKrah1&sz=w1000"
+              data-number="43"
+          /></a>
+
+          <!-- 46 -->
+          <a id="section_16" href="22_28.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=15m8VJRNkE8AEFIFnnPav-G_gSjKncIpo&sz=w1000"
+              data-number="46"
+          /></a>
+
+          <!-- 49 -->
+          <a id="section_17" href="22_25.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1srBhHLIdIwxOjvql5upAPzOpwrvRko8F&sz=w1000"
+              data-number="49"
+          /></a>
+
+          <!-- 52 -->
+          <a id="section_18" href="22_21.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1pOu6kj_EoTZiJ_AUqc-e5zCRNI4AvqCA&sz=w1000"
+              data-number="52"
+          /></a>
+
+          <!-- 55 -->
+          <a id="section_19" href="22_18.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1qGVM8tYCg5MKzio8oQWszOFWzzHtZtJw&sz=w1000"
+              data-number="55"
+          /></a>
+
+          <!-- 58 -->
+          <a id="section_20" href="22_15.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1lhXJ1Zh0hsn3A-WNlEBU3-Bl0YzDlyOx&sz=w1000"
+              data-number="58"
+          /></a>
+
+          <!-- 61 -->
+          <a id="section_21" href="22_12.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1Yhim6CipHKZ1sraeV2N1h7jCTWfH3EZ8&sz=w1000"
+              data-number="61"
+          /></a>
+
+          <!-- 64 -->
+          <a id="section_22" href="21_09.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1OWeW5PZkP6anZsH8EzISibqtUjEHMY9j&sz=w1000"
+              data-number="64"
+          /></a>
+
+          <!-- 67 -->
+          <a id="section_23" href="21_06.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1yalkhiNtPDaKN9oXrQ4Aj2PHpGoI39Kt&sz=w1000"
+              data-number="67"
+          /></a>
+
+          <!-- 70 -->
+          <a id="section_24" href="21_03.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=16XA7E42j2IgV5AQeI3E00xwXu10CEdQw&sz=w1000"
+              data-number="70"
+          /></a>
+        </div>
+
+        <!-- SECOND COLUMN -->
+        <!-- SECOND COLUMN -->
+        <!-- SECOND COLUMN -->
+
+        <div class="dream">
+          <!-- 2 -->
+          <a id="section_01" href="24_37.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=17DmnJ2Pge9H9SqyiexHXblDZxfCqkhFJ&sz=w1000"
+              data-number="2"
+          /></a>
+
+          <!-- 5 -->
+          <a id="section_02" href="24_32.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1TkIWNE0t6L3aaLaT0kOPWtUC2rXgf6cm&sz=w1000"
+              data-number="5"
+          /></a>
+
+          <!-- 8 -->
+          <a id="section_03" href="24_27.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1bhvfxWlz8IlDLUAMktfhmE5am-rnEJfk&sz=w1000"
+              data-number="8"
+          /></a>
+
+          <!-- 11 -->
+          <a id="section_04" href="24_20.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1QHYP0BMJgBCiNc4hYUByIUOBKFNPe-_p&sz=w1000"
+              data-number="11"
+          /></a>
+
+          <!-- 14 -->
+          <a id="section_05" href="24_15.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1F7f03EmdQIDN98ZRBUOXSsaRY3hTkVo3&sz=w1000"
+              data-number="14"
+          /></a>
+
+          <!-- 17 -->
+          <a id="section_06" href="24_12.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1HMlrVWOaZPMbZ2VwJk7cZvrn33Wc-FIL&sz=w1000"
+              data-number="17"
+          /></a>
+
+          <!-- 20 -->
+          <a id="section_07" href="24_08.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1_9XPlivWJ75UadIlhesRy6s89m5cgwyK&sz=w1000"
+              data-number="20"
+          /></a>
+
+          <!-- 23 -->
+          <a id="section_08" href="24_05.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1bwHrGDgicQO3uLs9uOIsosCxe52O2iVa&sz=w1000"
+              data-number="23"
+          /></a>
+
+          <!-- 26 -->
+          <a id="section_09" href="23_47.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1H0GJH9v5h0QnEXYGLfUdXxx7Ml4vtCxn&sz=w1000"
+              data-number="26"
+          /></a>
+
+          <!-- 29 -->
+          <a id="section_10" href="23_44.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1fK_q_XWbDtxIqrQhH8-0oe9hC7yyG6X9&sz=w1000"
+              data-number="29"
+          /></a>
+
+          <!-- 32 -->
+          <a id="section_11" href="23_41.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1R4zjjuUTpSeEBHyxMZLVOeFafdZG9u0n&sz=w1000"
+              data-number="32"
+          /></a>
+
+          <!-- 35 -->
+          <a id="section_12" href="23_38.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1Rb11Ypokiho7bC9_AUoDCy3n-7pbuRut&sz=w1000"
+              data-number="35"
+          /></a>
+
+          <!-- 38 -->
+          <a id="section_13" href="23_35.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=12zJWixYrL7oaz1kTKE1WmkmZN2QmYKKi&sz=w1000"
+              data-number="38"
+          /></a>
+
+          <!-- 41 -->
+          <a id="section_14" href="22_33.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1jGlfFw8YITOPH-kM1E74XY0AsPweAKU3&sz=w1000"
+              data-number="41"
+          /></a>
+
+          <!-- 44 -->
+          <a id="section_15" href="22_30.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1T0NBH_PHhRtfXj7hkjwSmplUB6aOMTzT&sz=w1000"
+              data-number="44"
+          /></a>
+
+          <!-- 47 -->
+          <a id="section_16" href="22_27.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1F-3PYyO2L370fCa8PHW1bqSJIqm_mpaw&sz=w1000"
+              data-number="47"
+          /></a>
+
+          <!-- 50 -->
+          <a id="section_17" href="22_24.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1pnJ9FlXiVeNNFJnWzVctyN2egf7iKyHR&sz=w1000"
+              data-number="50"
+          /></a>
+
+          <!-- 53 -->
+          <a id="section_18" href="22_20.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1U29XUk6M0DWepgy1DU_JHFqWcDrhELAo&sz=w1000"
+              data-number="53"
+          /></a>
+
+          <!-- 56 -->
+          <a id="section_19" href="22_17.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1VNWsanvNWyYYU3N50b4mmq6Pf1XHRqcW&sz=w1000"
+              data-number="56"
+          /></a>
+
+          <!-- 59 -->
+          <a id="section_20" href="22_14.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1L3dg2SAemD3b7RH7tWeG9uOwas9YNWLr&sz=w1000"
+              data-number="59"
+          /></a>
+
+          <!-- 62 -->
+          <a id="section_21" href="21_11.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1XPMCi_lNNbYo3XkRg7OWcrofbtRYZW6n&sz=w1000"
+              data-number="62"
+          /></a>
+
+          <!-- 65 -->
+          <a id="section_22" href="21_08.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1xQmoZ0tHnD5l5ycf_wnqR0hEqlmxu9mQ&sz=w1000"
+              data-number="65"
+          /></a>
+
+          <!-- 68 -->
+          <a id="section_23" href="21_05.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1mE6gLarPl5SLXINCcExn2zKRmbBbE3t7&sz=w1000"
+              data-number="68"
+          /></a>
+
+          <!-- 71 -->
+          <a id="section_24" href="20_02.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1UVhogQyPxT-hm9to0ujxHEh_LwJYTNGG&sz=w1000"
+              data-number="71"
+          /></a>
+        </div>
+
+        <!-- THIRTH COLUMN -->
+        <!-- THIRTH COLUMN -->
+        <!-- THIRTH COLUMN -->
+
+        <div class="dream">
+          <!-- 3 -->
+          <a id="section_01" href="24_36.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1-E_9YGG5heyvKy6SFI8YtRBLsBJQBzV5&sz=w1000"
+              data-number="3"
+          /></a>
+
+          <!-- 6 -->
+          <a id="section_02" href="24_29.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1ibMjBPDmriDFsag3iHoyu6D3-zIssemT&sz=w1000"
+              data-number="6"
+          /></a>
+
+          <!-- 9 -->
+          <a id="section_03" href="24_25.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=15uSmVKNxrNi8w35TQX3u7G_GXOU_ipGD&sz=w1000"
+              data-number="9"
+          /></a>
+
+          <!-- 12 -->
+          <a id="section_04" href="24_19.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1rG4hdko6dbbZ7wTKF-J6bDDXsi8xpLcH&sz=w1000"
+              data-number="12"
+          /></a>
+
+          <!-- 15 -->
+          <a id="section_05" href="24_14.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1MzWi4k5-K5Gu5qF7aI_WOzVgTpyZg3am&sz=w1000"
+              data-number="15"
+              alt="Loading failed"
+          /></a>
+
+          <!-- 18 -->
+          <a id="section_06" href="24_10.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1c8hwMNXgWPoQpbUM2xOPMJbkha0dDLhh&sz=w1000"
+              data-number="18"
+          /></a>
+
+          <!-- 21 -->
+          <a id="section_07" href="24_07.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1eWzAmsBubJ8PygZIHWCHrCBS9tXIoED4&sz=w1000"
+              data-number="21"
+          /></a>
+
+          <!-- 24 -->
+          <a id="section_08" href="24_04.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1oDWersY5pTw7QRIHs2XQBIHt78CiIlyF&sz=w1000"
+              ňdata-number="24"
+          /></a>
+
+          <!-- 27 -->
+          <a id="section_09" href="23_46.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1VngtCJtcmgJM0Z-WkR25jEL5y4oO80Rk&sz=w1000"
+              data-number="27"
+          /></a>
+
+          <!-- 30 -->
+          <a id="section_10" href="23_43.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1UDLANXUeTwnN2Kf62_xfy59_keTzhto1&sz=w1000"
+              data-number="30"
+          /></a>
+
+          <!-- 33 -->
+          <a id="section_11" href="23_40.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1uHs36EovwP0ObYsbS5cmWe4wI8ofmbib&sz=w1000"
+              data-number="33"
+          /></a>
+
+          <!-- 36 -->
+          <a id="section_12" href="23_37.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1d5hOkB_mqXmhlfXSSy9Pzure73_9DvO2&sz=w1000"
+              data-number="36"
+          /></a>
+
+          <!-- 39 -->
+          <a id="section_13" href="23_34.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1aRBJK4b5w5X1OsFy_1Urgn0U1KNBX4GZ&sz=w1000"
+              data-number="39"
+          /></a>
+
+          <!-- 42 -->
+          <a id="section_14" href="22_32.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1VhzSTIZ23kdirRIP9WodrFXXgvaL2zyZ&sz=w1000"
+              data-number="42"
+          /></a>
+
+          <!-- 45 -->
+          <a id="section_15" href="22_29.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1ySvA8fMOAuhIVL8QhzoWQl7EbTsFhidk&sz=w1000"
+              data-number="45"
+          /></a>
+
+          <!-- 48 -->
+          <a id="section_16" href="22_26.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1RDgBy5ez0CZ_SMubZPTUs6CgJ3GzzkPi&sz=w1000"
+              data-number="48"
+          /></a>
+
+          <!-- 51 -->
+          <a id="section_17" href="22_23.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1T84VJxSTBUlQC1rYPsGTAyx1d76N2BFc&sz=w1000"
+              data-number="51"
+          /></a>
+
+          <!-- 54 -->
+          <a id="section_18" href="22_19.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1GocizCGivTvebob3xM7vC0QD0VSQafaD&sz=w1000"
+              data-number="54"
+          /></a>
+
+          <!-- 57 -->
+          <a id="section_19" href="22_16.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1V1V_DNcheGgLVQpA1Weg7gnu_2oL17XO&sz=w1000"
+              data-number="57"
+          /></a>
+
+          <!-- 60 -->
+          <a id="section_20" href="22_13.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=12s1lvk-sjS2v4YsS64H401zLhBMBQ4kx&sz=w1000"
+              data-number="60"
+          /></a>
+
+          <!-- 63 -->
+          <a id="section_21" href="21_10.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1QzfcnHKNU0dNZoWdudBZigxtHHSfSXDW&sz=w1000"
+              data-number="63"
+          /></a>
+
+          <!-- 66 -->
+          <a id="section_22" href="21_07.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1iTrUUq096pMHb4d45t8ftl--Samb4RpG&sz=w1000"
+              data-number="66"
+          /></a>
+
+          <!-- 69 -->
+          <a id="section_23" href="21_04.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1whbNCqu6sS2171d5RUVM3iBMDhL_UteI&sz=w1000"
+              data-number="69"
+          /></a>
+
+          <!-- 72 -->
+          <a id="section_24" href="19_01.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1pLH2ImgUYuLw-1q1AkKEA5ghAujwmzRv&sz=w1000"
+              data-number="72"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE -->
+    <!-- MOBILE -->
+    <!-- MOBILE -->
+    <!-- MOBILE -->
+    <!-- MOBILE -->
+
+    <div class="container_mob">
+      <div class="heading">
+        <h3>Photo <span>Gallery</span></h3>
+      </div>
+      <div class="gallery">
+        <div class="dream" id="gallery">
+          <!-- 1 -->
+          <a id="section_101" href="24_40.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1QVS_hXsdqRYCWDoKHta7ZOCdFLAJff_m&sz=w1000"
+          /></a>
+
+          <!-- 2 -->
+          <a id="section_102" href="24_37.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=17DmnJ2Pge9H9SqyiexHXblDZxfCqkhFJ&sz=w1000"
+              data-number="2"
+          /></a>
+
+          <!-- 3 -->
+          <a id="section_103" href="24_36.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1-E_9YGG5heyvKy6SFI8YtRBLsBJQBzV5&sz=w1000"
+              data-number="3"
+          /></a>
+
+          <!-- 4 -->
+          <a id="section_104" href="24_33.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1WnSObIzau2rwZoqhjgqwD7WGNR0GiKJU&sz=w1000"
+              data-number="4"
+          /></a>
+
+          <!-- 5 -->
+          <a id="section_105" href="24_32.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1TkIWNE0t6L3aaLaT0kOPWtUC2rXgf6cm&sz=w1000"
+              data-number="5"
+          /></a>
+
+          <!-- 6 -->
+          <a id="section_106" href="24_29.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1ibMjBPDmriDFsag3iHoyu6D3-zIssemT&sz=w1000"
+              data-number="6"
+          /></a>
+
+          <!-- 7 -->
+          <a id="section_107" href="24_28.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1daly6IZiJkVYs4BzLyQvwMxsTUTyXy7p&sz=w1000"
+              data-number="7"
+          /></a>
+
+          <!-- 8 -->
+          <a id="section_108" href="24_27.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1bhvfxWlz8IlDLUAMktfhmE5am-rnEJfk&sz=w1000"
+              data-number="8"
+          /></a>
+
+          <!-- 9 -->
+          <a id="section_109" href="24_25.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=15uSmVKNxrNi8w35TQX3u7G_GXOU_ipGD&sz=w1000"
+              data-number="9"
+          /></a>
+
+          <!-- 10 -->
+          <a id="section_110" href="24_21.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1C42EQhsJ7bxXnkemgX9GUp8ogdfHG9sv&sz=w1000"
+              data-number="10"
+          /></a>
+
+          <!-- 11 -->
+          <a id="section_111" href="24_20.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1QHYP0BMJgBCiNc4hYUByIUOBKFNPe-_p&sz=w1000"
+              data-number="11"
+          /></a>
+
+          <!-- 12 -->
+          <a id="section_112" href="24_19.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1rG4hdko6dbbZ7wTKF-J6bDDXsi8xpLcH&sz=w1000"
+              data-number="12"
+          /></a>
+
+          <!-- 13 -->
+          <a id="section_113" href="24_16.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1bgBxMue0tL3n8glfbJV1wUs69qD9Ue6G&sz=w1000"
+              data-number="13"
+          /></a>
+
+          <!-- 14 -->
+          <a id="section_114" href="24_15.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1F7f03EmdQIDN98ZRBUOXSsaRY3hTkVo3&sz=w1000"
+              data-number="14"
+          /></a>
+
+          <!-- 15 -->
+          <a id="section_115" href="24_14.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1MzWi4k5-K5Gu5qF7aI_WOzVgTpyZg3am&sz=w1000"
+              data-number="15"
+              alt="Loading failed"
+          /></a>
+
+          <!-- 16 -->
+          <a id="section_116" href="24_13.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=177jQwaskrhDmXY522abGdFcztg_-MG_p&sz=w1000"
+              data-number="16"
+          /></a>
+
+          <!-- 17 -->
+          <a id="section_117" href="24_12.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1HMlrVWOaZPMbZ2VwJk7cZvrn33Wc-FIL&sz=w1000"
+              data-number="17"
+          /></a>
+
+          <!-- 18 -->
+          <a id="section_118" href="24_10.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1c8hwMNXgWPoQpbUM2xOPMJbkha0dDLhh&sz=w1000"
+              data-number="18"
+          /></a>
+
+          <!-- 19 -->
+          <a id="section_119" href="24_09.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1tFRGe5bdZnoFUFDl5h4R1gZrv7PrFQM4&sz=w1000"
+              data-number="19"
+          /></a>
+
+          <!-- 20 -->
+          <a id="section_120" href="24_08.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1_9XPlivWJ75UadIlhesRy6s89m5cgwyK&sz=w1000"
+              data-number="20"
+          /></a>
+
+          <!-- 21 -->
+          <a id="section_121" href="24_07.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1eWzAmsBubJ8PygZIHWCHrCBS9tXIoED4&sz=w1000"
+              data-number="21"
+          /></a>
+
+          <!-- 22 -->
+          <a id="section_122" href="24_06.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1rVpGuw87nZjchXHNC4sSK1bBJ_A9ynxr&sz=w1000"
+              data-number="22"
+          /></a>
+
+          <!-- 23 -->
+          <a id="section_123" href="24_05.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1bwHrGDgicQO3uLs9uOIsosCxe52O2iVa&sz=w1000"
+              data-number="23"
+          /></a>
+
+          <!-- 24 -->
+          <a id="section_124" href="24_04.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1oDWersY5pTw7QRIHs2XQBIHt78CiIlyF&sz=w1000"
+              ňdata-number="24"
+          /></a>
+
+          <!-- 25 -->
+          <a id="section_125" href="24_01.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1IOVDhquVGe170_xDCjiKTIYRIBEP9td4&sz=w1000"
+              data-number="25"
+          /></a>
+
+          <!-- 26 -->
+          <a id="section_126" href="23_47.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1H0GJH9v5h0QnEXYGLfUdXxx7Ml4vtCxn&sz=w1000"
+              data-number="26"
+          /></a>
+
+          <!-- 27 -->
+          <a id="section_127" href="23_46.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1VngtCJtcmgJM0Z-WkR25jEL5y4oO80Rk&sz=w1000"
+              data-number="27"
+          /></a>
+
+          <!-- 28 -->
+          <a id="section_128" href="23_45.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1VNMp1g_In0E_THqPdkKQqBbq5ltDAWIF&sz=w1000"
+              data-number="28"
+          /></a>
+
+          <!-- 29 -->
+          <a id="section_129" href="23_44.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1fK_q_XWbDtxIqrQhH8-0oe9hC7yyG6X9&sz=w1000"
+              data-number="29"
+          /></a>
+
+          <!-- 30 -->
+          <a id="section_130" href="23_43.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1UDLANXUeTwnN2Kf62_xfy59_keTzhto1&sz=w1000"
+              data-number="30"
+          /></a>
+
+          <!-- 31 -->
+          <a id="section_131" href="23_42.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1JKEfzVmNkqXBjZAuSUI9ss74LP4cOZUd&sz=w1000"
+              data-number="31"
+          /></a>
+
+          <!-- 32 -->
+          <a id="section_132" href="23_41.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1R4zjjuUTpSeEBHyxMZLVOeFafdZG9u0n&sz=w1000"
+              data-number="32"
+          /></a>
+
+          <!-- 33 -->
+          <a id="section_133" href="23_40.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1uHs36EovwP0ObYsbS5cmWe4wI8ofmbib&sz=w1000"
+              data-number="33"
+          /></a>
+
+          <!-- 34 -->
+          <a id="section_134" href="23_39.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=15cGS8pmdfWraVtxT3R-QC-nKV69yyHVi&sz=w1000"
+              data-number="34"
+          /></a>
+
+          <!-- 35 -->
+          <a id="section_135" href="23_38.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1Rb11Ypokiho7bC9_AUoDCy3n-7pbuRut&sz=w1000"
+              data-number="35"
+          /></a>
+
+          <!-- 36 -->
+          <a id="section_136" href="23_37.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1d5hOkB_mqXmhlfXSSy9Pzure73_9DvO2&sz=w1000"
+              data-number="36"
+          /></a>
+
+          <!-- 37 -->
+          <a id="section_137" href="23_36.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1yNSt1buhBSonZS9TPNxQZLSCCKh2zgGa&sz=w1000"
+              data-number="37"
+          /></a>
+
+          <!-- 38 -->
+          <a id="section_138" href="23_35.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=12zJWixYrL7oaz1kTKE1WmkmZN2QmYKKi&sz=w1000"
+              data-number="38"
+          /></a>
+
+          <!-- 39 -->
+          <a id="section_139" href="23_34.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1aRBJK4b5w5X1OsFy_1Urgn0U1KNBX4GZ&sz=w1000"
+              data-number="39"
+          /></a>
+
+          <!-- 40 -->
+          <a id="section_140" href="22_355.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1ODZ_-s6yosFTpcS_rfGhWkuR_XI5NoQ3&sz=w1000"
+              data-number="40"
+          /></a>
+
+          <!-- 41 -->
+          <a id="section_141" href="22_33.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1jGlfFw8YITOPH-kM1E74XY0AsPweAKU3&sz=w1000"
+              data-number="41"
+          /></a>
+
+          <!-- 42 -->
+          <a id="section_142" href="22_32.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1VhzSTIZ23kdirRIP9WodrFXXgvaL2zyZ&sz=w1000"
+              data-number="42"
+          /></a>
+
+          <!-- 43 -->
+          <a id="section_143" href="22_31.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1yEmNskQpzroJObvuOfXgFFSrt0aKrah1&sz=w1000"
+              data-number="43"
+          /></a>
+
+          <!-- 44 -->
+          <a id="section_144" href="22_30.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1T0NBH_PHhRtfXj7hkjwSmplUB6aOMTzT&sz=w1000"
+              data-number="44"
+          /></a>
+
+          <!-- 45 -->
+          <a id="section_145" href="22_29.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1ySvA8fMOAuhIVL8QhzoWQl7EbTsFhidk&sz=w1000"
+              data-number="45"
+          /></a>
+
+          <!-- 46 -->
+          <a id="section_146" href="22_28.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=15m8VJRNkE8AEFIFnnPav-G_gSjKncIpo&sz=w1000"
+              data-number="46"
+          /></a>
+
+          <!-- 47 -->
+          <a id="section_147" href="22_27.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1F-3PYyO2L370fCa8PHW1bqSJIqm_mpaw&sz=w1000"
+              data-number="47"
+          /></a>
+
+          <!-- 48 -->
+          <a id="section_148" href="22_26.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1RDgBy5ez0CZ_SMubZPTUs6CgJ3GzzkPi&sz=w1000"
+              data-number="48"
+          /></a>
+
+          <!-- 49 -->
+          <a id="section_149" href="22_25.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1srBhHLIdIwxOjvql5upAPzOpwrvRko8F&sz=w1000"
+              data-number="49"
+          /></a>
+
+          <!-- 50 -->
+          <a id="section_150" href="22_24.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1pnJ9FlXiVeNNFJnWzVctyN2egf7iKyHR&sz=w1000"
+              data-number="50"
+          /></a>
+
+          <!-- 51 -->
+          <a id="section_151" href="22_23.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1T84VJxSTBUlQC1rYPsGTAyx1d76N2BFc&sz=w1000"
+              data-number="51"
+          /></a>
+
+          <!-- 52 -->
+          <a id="section_152" href="22_21.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1pOu6kj_EoTZiJ_AUqc-e5zCRNI4AvqCA&sz=w1000"
+              data-number="52"
+          /></a>
+
+          <!-- 53 -->
+          <a id="section_153" href="22_20.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1U29XUk6M0DWepgy1DU_JHFqWcDrhELAo&sz=w1000"
+              data-number="53"
+          /></a>
+
+          <!-- 54 -->
+          <a id="section_154" href="22_19.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1GocizCGivTvebob3xM7vC0QD0VSQafaD&sz=w1000"
+              data-number="54"
+          /></a>
+
+          <!-- 55 -->
+          <a id="section_155" href="22_18.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1qGVM8tYCg5MKzio8oQWszOFWzzHtZtJw&sz=w1000"
+              data-number="55"
+          /></a>
+
+          <!-- 56 -->
+          <a id="section_156" href="22_17.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1VNWsanvNWyYYU3N50b4mmq6Pf1XHRqcW&sz=w1000"
+              data-number="56"
+          /></a>
+
+          <!-- 57 -->
+          <a id="section_157" href="22_16.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1V1V_DNcheGgLVQpA1Weg7gnu_2oL17XO&sz=w1000"
+              data-number="57"
+          /></a>
+
+          <!-- 58 -->
+          <a id="section_158" href="22_15.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1lhXJ1Zh0hsn3A-WNlEBU3-Bl0YzDlyOx&sz=w1000"
+              data-number="58"
+          /></a>
+
+          <!-- 59 -->
+          <a id="section_159" href="22_14.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1L3dg2SAemD3b7RH7tWeG9uOwas9YNWLr&sz=w1000"
+              data-number="59"
+          /></a>
+
+          <!-- 60 -->
+          <a id="section_160" href="22_13.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=12s1lvk-sjS2v4YsS64H401zLhBMBQ4kx&sz=w1000"
+              data-number="60"
+          /></a>
+
+          <!-- 61 -->
+          <a id="section_161" href="22_12.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1Yhim6CipHKZ1sraeV2N1h7jCTWfH3EZ8&sz=w1000"
+              data-number="61"
+          /></a>
+
+          <!-- 62 -->
+          <a id="section_162" href="21_11.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1XPMCi_lNNbYo3XkRg7OWcrofbtRYZW6n&sz=w1000"
+              data-number="62"
+          /></a>
+
+          <!-- 63 -->
+          <a id="section_163" href="21_10.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1QzfcnHKNU0dNZoWdudBZigxtHHSfSXDW&sz=w1000"
+              data-number="63"
+          /></a>
+
+          <!-- 64 -->
+          <a id="section_164" href="21_09.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1OWeW5PZkP6anZsH8EzISibqtUjEHMY9j&sz=w1000"
+              data-number="64"
+          /></a>
+
+          <!-- 65 -->
+          <a id="section_165" href="21_08.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1xQmoZ0tHnD5l5ycf_wnqR0hEqlmxu9mQ&sz=w1000"
+              data-number="65"
+          /></a>
+
+          <!-- 66 -->
+          <a id="section_166" href="21_07.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1iTrUUq096pMHb4d45t8ftl--Samb4RpG&sz=w1000"
+              data-number="66"
+          /></a>
+
+          <!-- 67 -->
+          <a id="section_167" href="21_06.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1yalkhiNtPDaKN9oXrQ4Aj2PHpGoI39Kt&sz=w1000"
+              data-number="67"
+          /></a>
+
+          <!-- 68 -->
+          <a id="section_168" href="21_05.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1mE6gLarPl5SLXINCcExn2zKRmbBbE3t7&sz=w1000"
+              data-number="68"
+          /></a>
+
+          <!-- 69 -->
+          <a id="section_169" href="21_04.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1whbNCqu6sS2171d5RUVM3iBMDhL_UteI&sz=w1000"
+              data-number="69"
+          /></a>
+
+          <!-- 70 -->
+          <a id="section_170" href="21_03.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=16XA7E42j2IgV5AQeI3E00xwXu10CEdQw&sz=w1000"
+              data-number="70"
+          /></a>
+
+          <!-- 71 -->
+          <a id="section_171" href="20_02.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1UVhogQyPxT-hm9to0ujxHEh_LwJYTNGG&sz=w1000"
+              data-number="71"
+          /></a>
+
+          <!-- 72 -->
+          <a id="section_172" href="19_01.html" target="_self"
+            ><img
+              src="https://drive.google.com/thumbnail?id=1pLH2ImgUYuLw-1q1AkKEA5ghAujwmzRv&sz=w1000"
+              data-number="72"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="textfield">
+      <h5 style="color: #e7c885" ; text-align="center" ;>
+        Všetky fotky na tejto stránke sú len náhľadovej veľkosti (v nízkej kvalite). Pokiaľ máte záujem o fotky v plenej kvalite alebo o lincenciu na fotky, napíšte mi. 
+      </h5>
+    </div>
+
+    <div class="text"></div>
+
+    <div class="linker">
+      <a href="Info about linence.html" target="_self">Viac informácii
+      </a>
+    </div>
+
+    <div class="text"></div>
+
+    <iframe
+      src="footer.html"
+      style="width: 100%; height: 200px; border: none"
+    ></iframe>
+
+    <script>
+      // Image URLs
+      const images = [
+        "https://drive.google.com/thumbnail?id=1avPkkiPUM7-SYq1rg37B5HLL2AewphXt&sz=w2000",
+        "https://drive.google.com/thumbnail?id=11vnYeP618IEJkSt-LGeYkxjWuwrcnL-p&sz=w2000",
+        "https://drive.google.com/thumbnail?id=1ijKqH3Xni1XOvhNHukbMul3i6npnztug&sz=w2000",
+        "https://drive.google.com/thumbnail?id=1arOjNJ2EkfQmZvhRZOkVdR_QW6HBBUV-&sz=w2000",
+        "https://drive.google.com/thumbnail?id=1q846Il2HKbvkO7umHx7L_KTk7-1xMtSn&sz=w2000",
+      ];
+
+      let currentIndex = 0;
+      const imageElement = document.querySelector(".slider-image");
+
+      // Function to change to the next image
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateImage();
+      }
+
+      // Function to change to the previous image
+      function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateImage();
+      }
+
+      // Function to update the displayed image
+      function updateImage() {
+        const imageUrl = images[currentIndex];
+        imageElement.src = imageUrl;
+      }
+      setInterval(nextImage, 5000);
+
+      window.onload = function () {
+        updateImage();
+      };
+    </script>
+  </body>
+</html>
