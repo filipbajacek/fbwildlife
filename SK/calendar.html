@@ -164,6 +164,14 @@
         flex-direction: column;
       }
 
+      .slider-image {
+        width: auto;
+        height: 50dvw;
+        max-width: 1500px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
       /* Slider button styling */
       .slider-button {
         position: absolute; /* Position them absolutely inside the container */
@@ -179,9 +187,9 @@
         border: none;
         padding: 15px;
         cursor: pointer;
-        font-size: 3vw;
+        font-size: 4vw;
         z-index: 10; /* Ensure buttons are on top */
-        opacity: 0.8;
+        opacity: 1.0;
       }
 
       .slider-button:hover {
