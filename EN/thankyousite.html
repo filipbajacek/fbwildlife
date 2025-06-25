@@ -4,22 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Write us</title>
-    <style>
-      /* Full-width header styling */
-      .header {
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        color: white;
-        text-align: center;
-        height: 5vh;
-        padding: 10px 0;
-        font-size: 1.5em;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000; /* Ensures header stays on top */
-      }
+    <link rel="stylesheet" href="../CSS+JS/styles.css">
+    <link rel="stylesheet" href="../CSS+JS/normalize.css">
 
+    <style>
       /* Body styling */
       body {
         margin: 0;
@@ -39,57 +27,6 @@
         padding: 1%;
         font-size: 30%;
         margin-bottom: 1vh;
-      }
-
-      /* Navigation bar styling */
-      .navbar {
-        position: fixed;
-        top: 0;
-        right: 5vh;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-end;
-      }
-
-      .navbar a {
-        text-decoration: none;
-        color: #e7c885;
-        padding: 1vh 1.5dvw;
-        background-color: rgba(0, 0, 0, 0);
-        border: 1px solid rgba(0, 0, 0, 0);
-        border-radius: 5px;
-        font-size: 2dvh;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      /* Banner container with black border and black background */
-      .linker {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5vh;
-        padding: 1vh, 1vh;
-        background-color: rgba(0, 0, 0, 0);
-        border: 1px solid rgba(0, 0, 0, 0); /* White border around banner */
-        border-radius: 7px;
-      }
-
-      /* Link styling with white text and border */
-      .linker a {
-        text-decoration: none;
-        color: #e7c885;
-        padding: 1vh 1vh;
-        background-color: rgba(0, 0, 0, 0);
-        border: 2px solid #e7c885; /* White border around each link */
-        border-radius: 5px;
-        font-size: 2.5dvw;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      /* Hover effect for links */
-      .linker a:hover {
-        background-color: #e7c885;
-        color: #000;
       }
 
       @media (max-width: 1099px) {
@@ -152,36 +89,15 @@
   <body>
     <header class="header">
       <div class="navbar">
-        <style>
-          .navbar {
-            position: fixed;
-            top: 1vh; /* Aligns navbar at the top of the screen */
-            right: 5vh; /* Positions navbar on the right side */
-            display: flex;
-            flex-direction: row; /* Displays banners vertically on the right */
-            align-items: flex-end; /* Aligns content to the right within the navbar */
-          }
 
-          .navbar a {
-            text-decoration: none;
-            color: #e7c885;
-            padding: 1vh 1.5dvw;
-            background-color: rgba(0, 0, 0, 0);
-            border: 1px solid rgba(0, 0, 0, 0);
-            border-radius: 5px;
-            font-size: 2dvh;
-            transition: background-color 0.3s ease, color 0.3s ease;
-          }
-        </style>
-
-        <a class="navbra_offer" href="Home_FINAL.html" target="_self">Home</a>
-        <a class="navbra_offer" href="Gallery_FINAL.html" target="_self"
+        <a class="navbra_offer" href="home.html" target="_self">Home</a>
+        <a class="navbra_offer" href="gallery.html" target="_self"
           >Gallery</a
         >
-        <a class="navbra_author" href="Author_FINAL.html" target="_self"
+        <a class="navbra_author" href="author.html" target="_self"
           >Author</a
         >
-        <a class="navbra_offer" href="Write us_FINAL.html" target="_self"
+        <a class="navbra_offer" href="write us.html" target="_self"
           >Write us</a
         >
       </div>
@@ -194,7 +110,7 @@
     <div class="invisible-field"></div>
 
     <div class="linker">
-      <a href="Home_FINAL.html" target="_self">Back home</a>
+      <a href="home.html" target="_self">Back home</a>
     </div>
 
     <div class="invisible-field"></div>

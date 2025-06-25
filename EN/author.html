@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Author</title>
+  <link rel="stylesheet" href="../CSS+JS/styles.css">
+  <link rel="stylesheet" href="../CSS+JS/sliderphoto.css">
+  <link rel="stylesheet" href="../CSS+JS/normalize.css">
+
+
+  <style>
+    /* Body styling with transparent background image */
+    body {
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      font-family: "Arial";
+      background: black;
+      background-size: cover;
+    }
+
+    /* Styling for the main heading */
+    h1 {
+      font-size: 32px;
+      /* Set the font size */
+      font-weight: bold;
+      /* Make it bold */
+      color: #e7c885;
+      /* Text color */
+      text-align: center;
+      /* Center-align the text */
+      margin-top: 1dvh;
+      margin-bottom: 3dvh;
+      margin-left: 12.5dvw;
+      margin-right: 12.5dvw;
+    }
+
+    /* Styling for the subheading */
+    h2 {
+      font-size: 22px;
+      /* Smaller than h1 */
+      color: #e7c885;
+      text-align: left;
+      /* Text color */
+      margin-top: 3dvh;
+      margin-bottom: 1dvh;
+      margin-left: 12.5dvw;
+      margin-right: 12.5dvw;
+    }
+
+    /* Styling for paragraph text */
+    p {
+      font-size: 18px;
+      /* Font size */
+      line-height: 1.6;
+      /* Spacing between lines */
+      color: #c0c0b7;
+      text-align: justify;
+      /* Text color */
+      margin-top: 3dvh;
+      margin-bottom: 1dvh;
+      margin-left: 12.5dvw;
+      margin-right: 12.5dvw;
+    }
+
+    .text {
+      background-color: rgba(256, 256, 256, 0);
+      display: block;
+      color: #e7c885;
+      text-align: center;
+      padding: 1%;
+      font-size: 30%;
+      margin-bottom: 1vh;
+    }
+  </style>
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="navbar">
+      <a class="navbar_SK" href="../SK/author.html" target="_self">SK</a>
+      <a class="navbra_offer" href="home.html" target="_self">Home</a>
+      <a class="navbra_offer" href="gallery.html" target="_self">Gallery</a>
+      <a class="navbra_author" href="author.html" target="_self">Author</a>
+      <a class="navbra_offer" href="write us.html" target="_self">Write us</a>
+    </div>
+  </header>
+
+  <div>
+    <img id="headingimage_pc" src="https://drive.google.com/thumbnail?id=1J_4TSO3Q_9B1ffU7g_tgARpmph0I4Jik&sz=w3000"
+      alt="Something went wrong" />
+    <img id="headingimage_mob" src="https://drive.google.com/thumbnail?id=12jQ7QVEKsP-f6BOoIFMV4DbI5aUh0GKt&sz=w2000"
+      alt="Something went wrong" />
+  </div>
+
+  <p>
+    I often feel that humans consider nature something we don't belong to. As
+    something that is not part of our everyday lives. Wild nature seems too
+    distant to us… Yes, man has pushed the wilderness beyond the borders of
+    his world. However, the truth is that nature is everywhere. In the fields,
+    in the gardens, in the cities and houses, and even in us. The world of
+    people is inseparably linked with nature and each of us is undoubtedly
+    dependent on it. And animals? Are they really all around us? Some are.
+    Sometimes, if you just look carefully under your feet while walking in a
+    meadow, you might discover a whole world of small creatures - spiders,
+    grasshoppers, bees, beetles and butterflies… If you listen carefully, you
+    will find that there are birds all around. And if you wait and watch, you
+    will find that the whole world around you is full of diverse animals.
+  </p>
+  <p>
+    When I started photographing wildlife, I also thought I would have to be
+    very lucky to find something. But over time, I realized that it is not so
+    much about luck as about patience. Photography requires patience above
+    all. However, the more time we spend on each photo, the more precious it
+    becomes to us. And that's why I what to share them with you.
+  </p>
+  <p>
+    My name is Filip Bajaček, I am currently 18 years old and I am from Slovakia. I do photography only
+    as a hobby. Nature has always been a place where I felt comfortable. And I
+    see meaning in photographing it mainly because it brings me closer to it.
+    It is always exciting when I take a photo of something new. It started
+    sometime when I was thirteen years old and in almost six years of
+    photography, I've seen, discovered and photographed at least a part of
+    Slovakia's nature. I've created images that bring me joy. I think that is
+    what it is all about. To have pleasure from nature, its beauty, its
+    meaning, its mysteries and its excellence. And finally, in its
+    "immortality" in photographs and memories.
+  </p>
+
+  <div class="text"></div>
+
+  <h2>My equipment</h2>
+  <p style="margin-left: 13.5dvw">• Nikon D7500</p>
+  <p style="margin-left: 13.5dvw">
+    • Tamron SP 150-600mm F/5-6.3 Di VC USD G2
+  </p>
+  <p style="margin-left: 13.5dvw">• Nikkor 18-135mm F/3.5-5.6G</p>
+  <p style="margin-left: 13.5dvw">
+    • Macro Extension Tube Set MEIKE, 12mm, 20mm, 36mm
+  </p>
+
+  <div class="text"></div>
+
+  <div class="slider-container" id="slider1">
+    <div class="slider-inner-wrapper">
+      <button class="slider-button prev-button" onclick="prevImage(1)">❮</button>
+      <img class="slider-image" src="image1.jpg" alt="Image 1" />
+      <button class="slider-button next-button" onclick="nextImage(1)">❯</button>
+    </div>
+  </div>
+  <div class="dots-container" id="dots1"></div>
+
+  <iframe src="footer.html" style="width: 100%; height: 200px; border: none"></iframe>
+</body>
+
+<script>
+  // Image URLs
+  const images = [
+    "https://drive.google.com/thumbnail?id=1eKIRk9-Y-N2-7OT9zEkkRyEaNOnOulEt&sz=w3000",
+    "https://drive.google.com/thumbnail?id=1teTgAm2V9mEIABQHWK-uVYkzD1r5fnwx&sz=w3000",
+  ];
+
+  let currentIndex = 0;
+  const imageElement = document.querySelector(".slider-image");
+  const dotsContainer = document.querySelector(".dots-container");
+
+  // Function to update the displayed image
+  function updateImage() {
+    const imageUrl = images[currentIndex];
+    imageElement.src = imageUrl;
+    updateDots();
+  }
+
+  // Function to create dots based on the number of images
+  function createDots() {
+    images.forEach((_, index) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      dot.addEventListener("click", () => goToImage(index));
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  // Function to update the active dot
+  function updateDots() {
+    const dots = document.querySelectorAll(".dot");
+    dots.forEach((dot) => dot.classList.remove("active-dot"));
+    dots[currentIndex].classList.add("active-dot");
+  }
+
+  // Function to go to the next image
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImage();
+  }
+
+  // Function to go to the previous image
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImage();
+  }
+
+  // Function to go to a specific image
+  function goToImage(index) {
+    currentIndex = index;
+    updateImage();
+  }
+
+  // Initialize the slider
+  function initializeSlider() {
+    createDots();
+    updateImage();
+    setInterval(nextImage, 10000);
+  }
+
+  window.onload = initializeSlider;
+</script>
+
+</html>
