@@ -1,0 +1,440 @@
+ /* Full-width header styling */
+      .header {
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        text-align: center;
+        height: 3.5dvh;
+        padding: 17px 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000; /* Ensures header stays on top */
+      }
+
+      /* Body styling with transparent background image */
+      body {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        font-family: "Arial";
+        background: black;
+        background-size: cover;
+      }
+
+       /* Heading image */
+       #headingimage_mob, #headingimage_pc {
+        display: none;
+      }
+
+      @media (max-width: 750px) {
+            #headingimage_mob {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        /* Show picture_2 for larger screens (screen width greater than 800px) */
+      @media (min-width: 751px) {
+            #headingimage_pc {
+                display: block;
+               width: 100%;
+                height: auto;
+            }
+        }
+
+      .h2 {
+        color: #e7c885;
+        font-size: 2.5vh;
+        text-align: center;
+      }
+
+      /* GALLERY SITE */
+
+      /* Text banner styling */
+      .text {
+        background-color: rgba(256, 256, 256, 0);
+        display: block;
+        color: rgb(231, 200, 133);
+        text-align: center;
+        padding: 1%;
+        font-size: 30%;
+        margin-bottom: 1vh;
+        transition: transform 1s ease;
+      }
+
+      /* Style for the image container */
+      .slider-container {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        transition: transform 1s ease;
+      }
+
+      /* Style for the images inside the container */
+      .slider-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1s ease;
+      }
+
+      /* NAVIGATION BAR */
+
+      /* Banner container with black border and black background */
+      .navbar {
+        position: fixed;
+        top: 1vh; /* Aligns navbar at the top of the screen */
+        right: 5vh; /* Positions navbar on the right side */
+        display: flex;
+        flex-direction: column; /* Displays banners vertically on the right */
+        align-items: flex-end; /* Aligns content to the right within the navbar */
+        background-color: rgba(0, 0, 0, 0); /* Transparent background */
+        border-radius: 7px;
+      }
+
+      /* Hover effect for links */
+      .navbar a:hover {
+        background-color: rgba(0, 0, 0, 0);
+        color: white;
+      }
+
+      /* Banner container with black border and black background */
+      .linker {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5vh;
+        padding: 1vh, 1vh;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid rgba(0, 0, 0, 0); /* White border around banner */
+        border-radius: 7px;
+      }
+
+      /* Link styling with white text and border */
+      .linker a {
+        text-decoration: none;
+        color: #e7c885;
+        padding: 1vh 1vh;
+        background-color: rgba(0, 0, 0, 0);
+        border: 2px solid #e7c885; /* White border around each link */
+        border-radius: 5px;
+        font-size: 2.5dvw;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      /* Hover effect for links */
+      .linker a:hover {
+        background-color: #e7c885;
+        color: #000;
+      }
+
+      @media (min-width: 600px) {
+        .container_pc {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          margin: 40px 20px 0px 20px;
+        }
+
+        .container_pc .heading {
+          width: 50%;
+          padding-bottom: 1%;
+        }
+
+        .container_pc .heading h3 {
+          font-size: 3em;
+          color: #e7c885;
+          font-weight: bolder;
+          padding-bottom: 5px;
+          border-bottom: 3px solid #e7c885;
+        }
+
+        .container_pc .heading h3 span {
+          font-weight: 100;
+        }
+
+        .container_pc .gallery {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+
+        .container_pc .gallery .dream {
+          display: flex;
+          flex-direction: column;
+          width: 32.5%;
+        }
+
+        .container_pc .gallery img {
+          width: 100%;
+          padding-bottom: 0vh;
+          transition: transform 0.3s ease;
+        }
+
+        .container_pc img:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .container_pc {
+          display: none;
+        }
+
+        .container_pc .gallery > [id] {
+          display: none;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .container_mob {
+          display: flex;
+          width: 100vw;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+
+        .container_mob .gallery {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .container_mob .gallery .dream {
+          width: 80dvw;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .container_mob .gallery img {
+          width: 100%;
+          padding-bottom: 0.7vh;
+          justify-content: center;
+          align-items: center;
+          transition: transform 0.3s ease;
+        }
+
+        .container_mob img:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      @media (min-width: 600px) {
+        .container_mob {
+          display: none;
+        }
+      }
+
+    
+
+      /* SCROL DOWN _ PC ONLY */
+      .pc-only {
+        display: none;
+      }
+
+      /* Display the content only on screens 768px or smaller */
+      @media only screen and (min-width: 1920px) {
+        .pc-only {
+          display: block;
+          font-size: 1.5em;
+          color: rgb(231, 200, 133, 0.35);
+          text-align: center;
+          margin-top: 20px;
+          position: absolute;
+          top: 13vh;
+          width: 100%;
+          height: 58%;
+          justify-content: center;
+          align-items: center;
+          background-color: rgba(0, 0, 0, 0);
+          font-size: 9vh;
+          font-weight: bold;
+        }
+      }
+
+      .textfield {
+        margin: 20px;
+        font-size: 1dvh"
+      }
+
+            .navbar {
+            position: fixed;
+            top: 1vh; /* Aligns navbar at the top of the screen */
+            right: 5vh; /* Positions navbar on the right side */
+            display: flex;
+            flex-direction: row; /* Displays banners vertically on the right */
+            align-items: flex-end; /* Aligns content to the right within the navbar */
+          }
+
+          .navbar a {
+            text-decoration: none;
+            color: #e7c885;
+            padding: 1vh 1.5dvw;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius: 5px;
+            font-size: 2dvh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+          }
+
+          .navbar_SK {
+            position: fixed;
+            top: 1vh; /* Aligns navbar at the top of the screen */
+            left: 3vh; /* Positions navbar on the right side */
+            display: flex;
+            flex-direction: row; /* Displays banners vertically on the right */
+            align-items: flex-end; /* Aligns content to the right within the navbar */
+          }
+
+
+          
+@media (min-width: 601px) and (max-width: 850px) {
+  .container_pc .gallery-grid {
+    display: grid;
+    width: 90dvw;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1dvw;
+    row-gap: 1.3dvw;
+    margin: 5px;
+  }
+
+  .container_pc .gallery-grid a {
+    width: 100%;
+  }
+
+  .container_pc .gallery-grid img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .container_pc .gallery-grid img:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media (min-width: 851px) and (max-width: 2000px) {
+  .container_pc .gallery-grid {
+    display: grid;
+    width: 90dvw;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1dvw;
+    row-gap: 0.9vw;
+    margin: 5px;
+  }
+
+  .container_pc .gallery-grid a {
+    width: 100%;
+  }
+
+  .container_pc .gallery-grid img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .container_pc .gallery-grid img:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media (min-width: 2001px) {
+  .container_pc .gallery-grid {
+    display: grid;
+    width: 90dvw;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    column-gap: 1dvw;
+    row-gap: 1dvw;
+    margin: 20px;
+  }
+
+  .container_pc .gallery-grid a {
+    width: 100%;
+  }
+
+  .container_pc .gallery-grid img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .container_pc .gallery-grid img:hover {
+    transform: scale(1.05);
+  }
+}
+
+.pagination-controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination-controls button {
+  margin: 5px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Skryť mobilné stránkovanie na PC */
+@media (min-width: 601px) {
+  #pagination-mob {
+    display: none;
+  }
+}
+
+/* Skryť desktop stránkovanie na mobile */
+@media (max-width: 600px) {
+  #pagination-pc {
+    display: none;
+  }
+}
+
+/* VŠEOBECNÉ ŠTÝLY – základ pre všetko */
+#pagination-pc button,
+#pagination-mob button {
+  color: #e7c885;
+  border: 1.5px solid #e7c885;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+/* DESKTOP */
+@media (min-width: 601px) {
+  #pagination-pc button {
+    font-size: 1.8dvh;
+    padding: 1vh 1vh;
+    margin: 0.4vh;
+  }
+}
+
+/* MOBIL */
+@media (max-width: 600px) {
+  #pagination-mob button {
+    font-size: 1.4dvh;
+    padding: 1vh 1vh;
+    margin: 0.25vh;
+  }
+}
+
+/* HOVER a ACTIVE spoločné */
+#pagination-pc button:hover,
+#pagination-mob button:hover,
+#pagination-pc button.active,
+#pagination-mob button.active {
+  background-color: #e7c885;
+  color: #000;
+  font-weight: bold;
+}

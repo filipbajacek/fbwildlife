@@ -1,0 +1,193 @@
+   /* HEADER */
+   /* HEADER */
+   /* HEADER */
+
+   .header {
+       width: 100%;
+       background-color: rgba(0, 0, 0, 0.6);
+       color: white;
+       text-align: center;
+       height: 5vh;
+       padding: 10px 0;
+       font-size: 1.5em;
+       position: fixed;
+       top: 0;
+       left: 0;
+       z-index: 1000;
+       /* Ensures header stays on top */
+   }
+
+   /* Body styling with transparent background image */
+   body {
+       justify-content: center;
+       align-items: center;
+       width: 100vw;
+       height: 100vh;
+       margin: 0;
+       font-family: "Arial";
+       background: black;
+       background-size: cover;
+   }
+
+   /* Heading image */
+   #headingimage_mob,
+   #headingimage_pc {
+       display: none;
+   }
+
+   @media (max-width: 750px) {
+       #headingimage_mob {
+           display: block;
+           width: 100%;
+           height: auto;
+       }
+
+        h2 {
+          font-size: 16px; /* Smaller than h1 */
+          color: white;
+          text-align: center; /* Text color */
+          margin-top: 3dvh;
+          margin-bottom: 1dvh;
+          margin-left: 12.5dvw;
+          margin-right: 12.5dvw;
+        }
+   }
+
+   /* Show picture_2 for larger screens (screen width greater than 800px) */
+   @media (min-width: 751px) {
+       #headingimage_pc {
+           display: block;
+           width: 100%;
+           height: auto;
+       }
+
+       h2 {
+          font-size: 22px; /* Smaller than h1 */
+          color: #ffffff;
+          text-align: center; /* Text color */
+          margin-top: 3dvh;
+          margin-bottom: 1dvh;
+          margin-left: 12.5dvw;
+          margin-right: 12.5dvw;
+        }
+   }
+
+   /* Text banner styling */
+      .text {
+        background-color: rgba(256, 256, 256, 0);
+        display: block;
+        color: #e7c885;
+        text-align: center;
+        padding: 1%;
+        font-size: 30%;
+        margin-bottom: 1vh;
+      }
+
+
+
+   /* NAVIGATION BAR */
+   /* NAVIGATION BAR */
+   /* NAVIGATION BAR */
+
+
+   /* Banner container with black border and black background */
+   .navbar {
+       position: fixed;
+       top: 1vh;
+       /* Aligns navbar at the top of the screen */
+       right: 5vh;
+       /* Positions navbar on the right side */
+       display: flex;
+       flex-direction: column;
+       /* Displays banners vertically on the right */
+       align-items: flex-end;
+       /* Aligns content to the right within the navbar */
+       background-color: rgba(0, 0, 0, 0);
+       /* Transparent background */
+       border-radius: 7px;
+   }
+
+   /* Hover effect for links */
+   .navbar a:hover {
+       background-color: rgba(0, 0, 0, 0);
+       color: white;
+   }
+
+   .navbar {
+       position: fixed;
+       top: 1vh;
+       /* Aligns navbar at the top of the screen */
+       right: 5vh;
+       /* Positions navbar on the right side */
+       display: flex;
+       flex-direction: row;
+       /* Displays banners vertically on the right */
+       align-items: flex-end;
+       /* Aligns content to the right within the navbar */
+   }
+
+   .navbar a {
+       text-decoration: none;
+       color: #e7c885;
+       padding: 1vh 1.5dvw;
+       background-color: rgba(0, 0, 0, 0);
+       border: 1px solid rgba(0, 0, 0, 0);
+       border-radius: 5px;
+       font-size: 2dvh;
+       transition: background-color 0.3s ease, color 0.3s ease;
+   }
+
+   .navbar_SK {
+       position: fixed;
+       top: 1vh;
+       /* Aligns navbar at the top of the screen */
+       left: 3vh;
+       /* Positions navbar on the right side */
+       display: flex;
+       flex-direction: row;
+       /* Displays banners vertically on the right */
+       align-items: flex-end;
+       /* Aligns content to the right within the navbar */
+   }
+
+   .transparent-text {
+        color: rgba(256, 256, 256, 0);
+        font-size: 3vh;
+        font-weight: lighter;
+      }
+
+   /* LINKER */
+   /* LINKER */
+   /* LINKER */
+
+   /* Banner container with black border and black background */
+   .linker {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       gap: 5vh;
+       padding: 1vh, 1vh;
+       background-color: rgba(0, 0, 0, 0);
+       border: 1px solid rgba(0, 0, 0, 0);
+       /* White border around banner */
+       border-radius: 7px;
+   }
+
+   /* Link styling with white text and border */
+   .linker a {
+       text-decoration: none;
+       color: #e7c885;
+       padding: 1vh 1vh;
+       background-color: rgba(0, 0, 0, 0);
+       border: 2px solid #e7c885;
+       /* White border around each link */
+       border-radius: 5px;
+       font-size: 2.5dvw;
+       transition: background-color 0.3s ease, color 0.3s ease;
+   }
+
+   /* Hover effect for links */
+   .linker a:hover {
+       background-color: #e7c885;
+       color: #000;
+   }

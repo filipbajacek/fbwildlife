@@ -1,0 +1,83 @@
+/* Style for the image container */
+    .slider-container {
+      position: relative;
+      max-width: 1500px;
+      overflow: hidden;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .slider-inner-wrapper {
+      position: relative;
+      display: inline-block;
+      max-width: 90vw;
+      max-height: 70dvh;
+    }
+
+    /* Style for the images inside the container */
+    .slider-image {
+      width: auto;
+      height: 50dvw;
+      max-width: 90dvw;
+      max-height: 70dvh;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    /* Navigation buttons */
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0);
+      color: (hsla(0, 0%, 99%, 0.124));
+      border: none;
+      padding: 15px;
+      cursor: pointer;
+      font-size: 3vw;
+      color: #f0d7a0ac;
+      z-index: 10;
+      opacity: 0.8;
+    }
+
+    .slider-button:hover {
+      opacity: 1;
+    }
+
+    .prev-button {
+      left: 0.1vw;
+    }
+
+    .next-button {
+      right: 0.1vw;
+    }
+
+    /* Dots navigation */
+    .dots-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      height: 10px;
+      width: 10px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .active-dot {
+      background-color: #717171;
+    }
