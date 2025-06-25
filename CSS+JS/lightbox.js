@@ -178,6 +178,43 @@
         });
 
 
+        // Swipe detection
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        this.$lightbox[0].addEventListener('touchstart', function (event) {
+            touchStartX = event.changedTouches[0].screenX;
+        }, false);
+
+        this.$lightbox[0].addEventListener('touchend', function (event) {
+            touchEndX = event.changedTouches[0].screenX;
+            handleSwipeGesture();
+        }, false);
+
+        function handleSwipeGesture() {
+            const deltaX = touchEndX - touchStartX;
+            const threshold = 50; // Minimum swipe distance in px
+            if (Math.abs(deltaX) > threshold) {
+                if (deltaX > 0) {
+                    // swipe right → previous image
+                    const currentNumber = self.album[self.currentImageIndex].number;
+                    const prev = self.album.find(img => img.number === currentNumber - 1);
+                    if (prev) {
+                        const newIndex = self.album.findIndex(img => img.number === prev.number);
+                        self.changeImage(newIndex);
+                    }
+                } else {
+                    // swipe left → next image
+                    const currentNumber = self.album[self.currentImageIndex].number;
+                    const next = self.album.find(img => img.number === currentNumber + 1);
+                    if (next) {
+                        const newIndex = self.album.findIndex(img => img.number === next.number);
+                        self.changeImage(newIndex);
+                    }
+                }
+            }
+        }
+
         this.$lightbox.find('.lb-loader, .lb-close').on('click', function () {
             self.end();
             return false;
@@ -406,6 +443,38 @@
             }
         }
     };
+
+    function handleSwipeGesture() {
+        const deltaX = touchEndX - touchStartX;
+        const threshold = 50; // Minimum swipe distance in px
+
+        if (Math.abs(deltaX) > threshold) {
+            const currentNumber = self.album[self.currentImageIndex].number;
+            const numbers = self.album.map(img => img.number);
+            const min = Math.min(...numbers);
+            const max = Math.max(...numbers);
+
+            if (deltaX > 0) {
+                // swipe right → previous image
+                const prevNumber = numbers.includes(currentNumber - 1)
+                    ? currentNumber - 1
+                    : (self.options.wrapAround ? max : null);
+                if (prevNumber !== null) {
+                    const newIndex = self.album.findIndex(img => img.number === prevNumber);
+                    self.changeImage(newIndex);
+                }
+            } else {
+                // swipe left → next image
+                const nextNumber = numbers.includes(currentNumber + 1)
+                    ? currentNumber + 1
+                    : (self.options.wrapAround ? min : null);
+                if (nextNumber !== null) {
+                    const newIndex = self.album.findIndex(img => img.number === nextNumber);
+                    self.changeImage(newIndex);
+                }
+            }
+        }
+    }
 
     // Display caption, image number, and closing button.
     Lightbox.prototype.updateDetails = function () {
