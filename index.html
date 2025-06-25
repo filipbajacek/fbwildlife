@@ -1,650 +1,461 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Wildlife behind the lens | Filip Bajaček</title>
-    <meta name="description" content="Website of a wildlife photographer"> 
-    <link rel="icon" type="image/svg" href="https://drive.google.com/thumbnail?id=1nD5vqv9BTY_AgY3Cr4o-hWZuvyVAs7c0&sz=w400">
-    <style>
-      /* Full-width header styling */
-      .header {
-        width: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        color: white;
-        text-align: center;
-        height: 5vh;
-        padding: 10px 0;
-        font-size: 1.5em;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1000; /* Ensures header stays on top */
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="CSS+JS/sliderphoto.css">
+  <link rel="stylesheet" href="CSS+JS/styles.css">
+  <link rel="stylesheet" href="CSS+JS/normalize.css">
+
+  <style>
+    /* Body styling with transparent background image */
+    body {
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      font-family: "Arial";
+      background: black;
+      background-size: cover;
+    }
+
+    /* Text banner styling */
+    .text {
+      background-color: rgba(256, 256, 256, 0);
+      display: block;
+      color: #e7c885;
+      text-align: center;
+      padding: 1%;
+      font-size: 30%;
+      margin-bottom: 1vh;
+    }
+
+    /* Text banner styling */
+    .text h3 {
+      background-color: rgba(256, 256, 256, 0);
+      display: block;
+      color: #e7c885;
+      text-align: center;
+      font-size: 20vh;
+      padding: 1%;
+      font-size: 30%;
+      margin-bottom: 1vh;
+    }
+  </style>
+
+  <style>
+    /* Optional styling for text */
+    .transparent-text {
+      color: rgba(256, 256, 256, 0);
+      font-size: 3vh;
+      font-weight: lighter;
+    }
+
+    @media (max-width: 1099px) {
+      .invisible-field {
+        width: 100vw;
+        height: 30dvw;
+        background-color: transparent;
+        /* Makes the background invisible */
+        opacity: 0;
+        /* Makes the whole field invisible */
       }
 
-      /* Body styling with transparent background image */
-      body {
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 100vh;
-        margin: 0;
-        font-family: "Arial";
-        background: black;
-        background-size: cover;
+      .invisible-field-small {
+        width: 100vw;
+        height: 14dvw;
+        background-color: transparent;
+        /* Makes the background invisible */
+        opacity: 0;
+        /* Makes the whole field invisible */
+      }
+    }
+
+    .invisible-field-smallest {
+      width: 100vw;
+      height: 8dvw;
+      background-color: transparent;
+      /* Makes the background invisible */
+      opacity: 0;
+      /* Makes the whole field invisible */
+    }
+
+    @media (min-width: 1100px) {
+      .invisible-field {
+        width: 100vw;
+        height: 15dvw;
+        background-color: transparent;
+        /* Makes the background invisible */
+        opacity: 0;
+        /* Makes the whole field invisible */
       }
 
-      /* GALLERY SITE */
-
-      /* Text banner styling */
-      .text {
-        background-color: rgba(256, 256, 256, 0);
-        display: block;
-        color: #e7c885;
-        text-align: center;
-        padding: 1%;
-        font-size: 30%;
-        margin-bottom: 1vh;
+      .invisible-field-small {
+        width: 100vw;
+        height: 10dvw;
+        background-color: transparent;
+        /* Makes the background invisible */
+        opacity: 0;
+        /* Makes the whole field invisible */
       }
 
-      /* Text banner styling */
-      .text h3 {
-        background-color: rgba(256, 256, 256, 0);
-        display: block;
-        color: #e7c885;
-        text-align: center;
-        font-size: 20vh;
-        padding: 1%;
-        font-size: 30%;
-        margin-bottom: 1vh;
+      .invisible-field-smallest {
+        width: 100vw;
+        height: 6dvw;
+        background-color: transparent;
+        /* Makes the background invisible */
+        opacity: 0;
+        /* Makes the whole field invisible */
       }
+    }
 
-      /* Heading image */
-      #headingimage_mob, #headingimage_pc {
-        display: none;
-      }
-
-      @media (max-width: 750px) {
-            #headingimage_mob {
-                display: block;
-                width: 100%;
-                height: auto;
-            }
-        }
-
-        /* Show picture_2 for larger screens (screen width greater than 800px) */
-      @media (min-width: 751px) {
-            #headingimage_pc {
-              display: block;
-              width: 100%;
-              height: auto;
-            }
-        }
-
-
-      /* Optional styling for text */
-      .transparent-text {
-        color: rgba(256, 256, 256, 0);
-        font-size: 3vh;
-        font-weight: lighter;
-      }
-
-       @media (max-width: 1099px){
-        .invisible-field {
-          width: 100%;
-          height: 30dvw;
-          background-color: transparent; /* Makes the background invisible */
-          opacity: 0; /* Makes the whole field invisible */
-        }
-
-        .invisible-field-small {
-          width: 100%;
-          height: 14dvw;
-          background-color: transparent; /* Makes the background invisible */
-          opacity: 0; /* Makes the whole field invisible */
-        }
-       }
-
-       .invisible-field-smallest {
-          width: 100%;
-          height: 8dvw;
-          background-color: transparent; /* Makes the background invisible */
-          opacity: 0; /* Makes the whole field invisible */
-        }
-
-       @media (min-width: 1100px){
-        .invisible-field {
-          width: 100%;
-          height: 15dvw;
-          background-color: transparent; /* Makes the background invisible */
-          opacity: 0; /* Makes the whole field invisible */
-        }
-
-        .invisible-field-small {
-          width: 100%;
-          height: 10dvw;
-          background-color: transparent; /* Makes the background invisible */
-          opacity: 0; /* Makes the whole field invisible */
-        }
-
-        .invisible-field-smallest {
-          width: 100%;
-          height: 6dvw;
-          background-color: transparent; /* Makes the background invisible */
-          opacity: 0; /* Makes the whole field invisible */
-        }
-       }
-
-      /* NAVIGATION BAR */
-
-      /* Banner container with black border and black background */
-      .navbar {
-        position: fixed;
-        top: 1vh; /* Aligns navbar at the top of the screen */
-        right: 5vh; /* Positions navbar on the right side */
-        display: flex;
-        flex-direction: column; /* Displays banners vertically on the right */
-        align-items: flex-end; /* Aligns content to the right within the navbar */
-        background-color: rgba(0, 0, 0, 0); /* Transparent background */
-        border-radius: 7px;
-      }
-
-      /* Hover effect for links */
-      .navbar a:hover {
-        background-color: rgba(0, 0, 0, 0);
-        color: white;
-      }
-
-      /* Banner container with black border and black background */
-      .linker {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5vh;
-        padding: 1vh, 1vh;
-        background-color: rgba(0, 0, 0, 0);
-        border: 1px solid rgba(0, 0, 0, 0); /* White border around banner */
-        border-radius: 7px;
-      }
-
-      /* Link styling with white text and border */
-      .linker a {
-        text-decoration: none;
-        color: #e7c885;
-        padding: 1vh 1vh;
-        background-color: rgba(0, 0, 0, 0);
-        border: 2px solid #e7c885; /* White border around each link */
-        border-radius: 5px;
-        font-size: 2.5dvw;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-
-      /* Hover effect for links */
-      .linker a:hover {
-        background-color: #e7c885;
-        color: #000;
-      }
-    </style>
-
-    <style>
-      /* Style for the image container */
-      .slider-container {
-        position: relative;
-        max-width: 1500px;
-        overflow: hidden;
-        margin: auto;
+    /* Gray field styling */
+    /* PC */
+    @media (min-width: 1100px) {
+      .gray-field {
+        width: 100vw;
+        height: 70dvh;
+        background-color: rgba(54, 49, 45, 0.304);
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
-      /* Style for the images inside the container */
-      .slider-image {
+      .gray-field2 {
+        width: 100vw;
+        height: 60dvh;
+        background-color: rgba(54, 49, 45, 0.304);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .centered-photo {
         width: auto;
         height: 50dvw;
-        max-width: 1500px;
+        max-width: 90dvw;
+        max-height: 70dvh;
         object-fit: cover;
-        transition: transform 0.5s ease;
       }
 
-      /* Navigation buttons */
-      .slider-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0);
-        color: (hsla(0, 0%, 99%, 0.124));
-        border: none;
-        padding: 15px;
-        cursor: pointer;
-        font-size: 3vw;
-        color: #f0d7a0ac;
-        z-index: 10;
-        opacity: 0.8;
+      .calendar-photo {
+        height: auto;
+        width: 65vw;
+        object-fit: cover;
+        max-width: 90dvw;
+        max-height: 70dvh;
       }
 
-      .slider-button:hover {
-        opacity: 1;
+      .text h1 {
+        font-size: 55px;
+        color: #e7c885
       }
 
-      .prev-button {
-        left: 12vw;
+      .text h2 {
+        font-size: 28px;
+        color: white;
       }
+    }
 
-      .next-button {
-        right: 12vw;
-      }
-
-      /* Dots navigation */
-      .dots-container {
+    /* TABLET */
+    @media (min-width: 602px) and (max-width: 1099px) {
+      .gray-field {
+        width: 100vw;
+        height: 50dvh;
+        background-color: rgba(54, 49, 45, 0.304);
         display: flex;
         justify-content: center;
-        margin-top: 10px;
+        align-items: center;
       }
 
-      .dot {
-        height: 10px;
-        width: 10px;
-        margin: 0 5px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.3s ease;
-        cursor: pointer;
+      .gray-field2 {
+        width: 100vw;
+        height: 35dvh;
+        background-color: rgba(54, 49, 45, 0.304);
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
-      .active-dot {
-        background-color: #717171;
-      }
-    </style>
-
-    <style>
-      /* Gray field styling */
-      /* PC */
-      @media (min-width: 1100px) {
-        .gray-field {
-          width: 99%;
-          height: 70dvh;
-          background-color: rgba(54, 49, 45, 0.304);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .gray-field2 {
-          width: 99%;
-          height: 60dvh;
-          background-color: rgba(54, 49, 45, 0.304);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        
-        .centered-photo {
-          height: 80dvh;
-          width: auto;
-          object-fit: cover;
-        }
-
-        .calendar-photo {
-          height: auto;
-          width: 65vw;
-          object-fit: cover;
-        }
-
-        .text h2 {
-          font-size: 55px;
-          color: #e7c885
-        }
-
-        .text h3 {
-          font-size: 28px;
-          color: white;
-        }
+      .centered-photo {
+        height: auto;
+        width: 72dvw;
+        max-width: 95dvh;
+        max-height: 90dvh;
+        object-fit: cover;
       }
 
-      /* TABLET */
-      @media (min-width: 602px) and (max-width: 1099px) {
-        .gray-field {
-          width: 99%;
-          height: 50dvh;
-          background-color: rgba(54, 49, 45, 0.304);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .gray-field2 {
-          width: 99%;
-          height: 35dvh;
-          background-color: rgba(54, 49, 45, 0.304);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .centered-photo {
-          height: auto;
-          width: 72dvw;
-          object-fit: cover;
-        }
-
-        .calendar-photo {
-              height: auto;
-              width: 80vw;
-              object-fit: cover;
-            }
-
-        .text h2 {
-          font-size: 36px;
-          color: #e7c885
-        }
-
-        .text h3 {
-          font-size: 24px;
-          color: white;
-        }
+      .calendar-photo {
+        height: auto;
+        width: 80vw;
+        object-fit: cover;
       }
 
-      /* MOBILE */
-      @media (max-width: 600px){
-        .gray-field {
-          width: 100%;
-          height: 28dvh;
-          background-color: rgba(54, 49, 45, 0.304);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .gray-field2 {
-          width: 100%;
-          height: 20dvh;
-          background-color: rgba(54, 49, 45, 0.304);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        .centered-photo {
-          height: auto;
-          width: 65dvw;
-          object-fit: cover;
-        }
-
-        .calendar-photo {
-          height: auto;
-          width: 80vw;
-          object-fit: cover;
-        }
-
-        .text h2 {
-          font-size: 24px;
-          color: #e7c885
-        }
-
-        .text h3 {
-          font-size: 14px;
-          color: white;
-        }
-
+      .text h1 {
+        font-size: 36px;
+        color: #e7c885
       }
 
-    </style>
-    </style>
+      .text h2 {
+        font-size: 24px;
+        color: white;
+      }
+    }
 
-  </head>
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .gray-field {
+        width: 100vw;
+        height: 28dvh;
+        background-color: rgba(54, 49, 45, 0.304);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-  <body>
-    <header class="header">
-      <div class="navbar">
-        <style>
-          .navbar {
-            position: fixed;
-            top: 1vh; /* Aligns navbar at the top of the screen */
-            right: 5vh; /* Positions navbar on the right side */
-            display: flex;
-            flex-direction: row; /* Displays banners vertically on the right */
-            align-items: flex-end; /* Aligns content to the right within the navbar */
-          }
+      .gray-field2 {
+        width: 100vw;
+        height: 20dvh;
+        background-color: rgba(54, 49, 45, 0.304);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-          .navbar a {
-            text-decoration: none;
-            color: #e7c885;
-            padding: 1vh 1.5dvw;
-            background-color: rgba(0, 0, 0, 0);
-            border: 1px solid rgba(0, 0, 0, 0);
-            border-radius: 5px;
-            font-size: 2dvh;
-            transition: background-color 0.3s ease, color 0.3s ease;
-          }
+      .centered-photo {
+        height: auto;
+        width: 65dvw;
+        object-fit: cover;
+      }
 
-          .navbar_SK {
-            position: fixed;
-            top: 1vh; /* Aligns navbar at the top of the screen */
-            left: 3vh; /* Positions navbar on the right side */
-            display: flex;
-            flex-direction: row; /* Displays banners vertically on the right */
-            align-items: flex-end; /* Aligns content to the right within the navbar */
-          }
-        </style>
-        <a class="navbar_SK" href="../SK/Home_FINAL.html" target="_self">SK</a>
-        <a class="navbra_offer" href="index.html" target="_self">Home</a>
-        <a class="navbra_offer" href="EN/Gallery_FINAL.html" target="_self"
-          >Gallery</a
-        >
-        <a class="navbra_author" href="EN/Author_FINAL.html" target="_self"
-          >Author</a
-        >
-        <a class="navbra_offer" href="EN/Write us_FINAL.html" target="_self"
-          >Write us</a
-        >
-        
-      </div>
-    </header>
+      .calendar-photo {
+        height: auto;
+        width: 80vw;
+        object-fit: cover;
+      }
 
-    
+      .text h1 {
+        font-size: 24px;
+        color: #e7c885
+      }
 
-    <div>
-      <img id="headingimage_pc" src="https://drive.google.com/thumbnail?id=15-QqNGM6OkhassHEDl3OceVk0JZthHUI&sz=w3000" alt="Something went wrong">
-      <img id="headingimage_mob" src="https://drive.google.com/thumbnail?id=1ki5CkuEzu1GPnCildvwPckhxvsBYkR-V&sz=w2000" alt="Something went wrong">
+      .text h2 {
+        font-size: 14px;
+        color: white;
+      }
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="navbar">
+      <a class="navbar_SK" href="SK/home.html" target="_self">SK</a>
+      <a class="navbra_offer" href="EN/home.html" target="_self">Home</a>
+      <a class="navbra_offer" href="EN/gallery.html" target="_self">Gallery</a>
+      <a class="navbra_author" href="EN/author.html" target="_self">Author</a>
+      <a class="navbra_offer" href="EN/write us.html" target="_self">Write us</a>
+
     </div>
+  </header>
 
-    <h1 style="font: size 2px; color: rgb(0, 0, 0); margin-top: 0px; margin-bottom: 0px;"> Wildlife behind the lens </h1>
-    
-    <div class="text"></div>
-    <div class="text">
-      <h2 style="font-weight: 100 ;font-family: Verdana, sans-serif">
-        From the latest
-      </h2>
-    </div>
 
-    <!-- First Slider -->
-    <div class="slider-container" id="slider1">
+
+  <div>
+    <img id="headingimage_pc" src="https://drive.google.com/thumbnail?id=15-QqNGM6OkhassHEDl3OceVk0JZthHUI&sz=w3000"
+      alt="Something went wrong">
+    <img id="headingimage_mob" src="https://drive.google.com/thumbnail?id=1ki5CkuEzu1GPnCildvwPckhxvsBYkR-V&sz=w2000"
+      alt="Something went wrong">
+  </div>
+
+
+
+  <div class="text">
+    <h1 style="font-weight: 100 ;font-family: Verdana, sans-serif; margin-bottom: 0.5dvw">
+      From the latest
+    </h1>
+  </div>
+
+  <!-- First Slider -->
+  <div class="slider-container" id="slider1">
+    <div class="slider-inner-wrapper">
       <button class="slider-button prev-button" onclick="prevImage(1)">❮</button>
       <img class="slider-image" src="image1.jpg" alt="Image 1" />
       <button class="slider-button next-button" onclick="nextImage(1)">❯</button>
     </div>
-    <div class="dots-container" id="dots1"></div>
+  </div>
+  <div class="dots-container" id="dots1"></div>
 
+  <div class="transparent-text">-</div>
 
-    <div class="transparent-text">-</div>
+  <div class="linker">
+    <a href="EN/gallery.html" target="_self" style="font-size: 25px;">View more photos</a>
+  </div>
 
-    <div class="linker">
-      <a href="EN/Gallery_FINAL.html" target="_self" style="font-size: 25px;">View more photos</a>
-    </div>
+  <!-- BEST OF 2024 <div class="gray-field">
+    <a href="Gallery_FINAL.html" target="_self">
+      <img class="centered-photo" src="https://drive.google.com/thumbnail?id=1jMZkUyBkUnL1kF8CoUg6eTI0dSs_Unve&sz=w1000"
+        alt="Something went wrong" />
+    </a>
+  </div> -->
 
-    <div class="invisible-field"></div>
-  
-    <div class="gray-field">
-      <a href="...EN/Gallery_FINAL.html" target="_self" >
-        <img
-        class="centered-photo"
-        src="https://drive.google.com/thumbnail?id=1jMZkUyBkUnL1kF8CoUg6eTI0dSs_Unve&sz=w1000"
-        alt="Something went wrong"
-      />
-      </a>
-    </div>
+  <div class="invisible-field-small"></div>
 
-    <div class="invisible-field"></div>
-    <div class="invisible-field-small"></div>
+  <!-- Photo calendar -->
 
-    <div class="text">
-      <h2 style="font-weight: 100 ;font-family: Verdana, sans-serif; margin-bottom: 0.5dvw" >
-        Photo calendar for 2025
-      </h2>
-    </div>
+  <div class="text">
+    <h1 style="font-weight: 100 ;font-family: Verdana, sans-serif; margin-bottom: 0.5dvw">
+      Photo calendar for 2025
+    </h1>
+  </div>
 
-    <div class="invisible-field-smallest"></div>
+  <div class="slider-container">
+    <img class="slider-image" href="EN/gallery.html"
+      src="https://drive.google.com/thumbnail?id=1WvAlsun8zqkru9b-FVPYP0Q-rFbRa-MB&sz=w1000"
+      alt="Something went wrong" />
+  </div>
 
-    <div class="gray-field2">
-      <img
-        class="calendar-photo"
-        src="https://drive.google.com/thumbnail?id=1WvAlsun8zqkru9b-FVPYP0Q-rFbRa-MB&sz=w1000"
-        alt="Something went wrong"
-      />
-    </div>
+  <div class="text">
+    <h2 style="margin-top: 0.1dvw;">Author's calendar from photos taken during 2024</h2>
+  </div>
 
-    <div class="invisible-field-small"></div>
+  <div class="linker">
+    <a href="EN/calendar.html" target="_self" style="font-size: 25px;">View calendar</a>
+  </div>
 
-    <div class="text">
-      <h3 style="margin-top: 0.1dvw;" >Author's calendar with photos taken during 2024</h3>
-    </div>
+  <div class="invisible-field-small"></div>
 
-    <div class="linker">
-      <a href="EN/calendar.html" target="_self" style="font-size: 25px;">View calendar</a>
-    </div>
-
-    <div class="invisible-field"></div>
-
-    <!-- Second Slider -->
-    <div class="slider-container" id="slider2">
+  <!-- Second Slider -->
+  <div class="slider-container" id="slider2">
+    <div class="slider-inner-wrapper">
       <button class="slider-button prev-button" onclick="prevImage(2)">❮</button>
       <img class="slider-image" src="image6.jpg" alt="Image 6" />
       <button class="slider-button next-button" onclick="nextImage(2)">❯</button>
     </div>
-    <div class="dots-container" id="dots2"></div>
+  </div>
+  <div class="dots-container" id="dots2"></div>
 
-    <div class="invisible-field-smallest"></div>
+  <div class="invisible-field-smallest"></div>
 
-    <div class="linker">
-      <a href="EN/Author_FINAL.html" target="_self" style="font-size: 25px;">Something about the author</a>
-    </div>
+  <div class="linker">
+    <a href="EN/author.html" target="_self" style="font-size: 25px;">Something about author</a>
+  </div>
 
-    <div class="invisible-field-small"></div>
+  <iframe src="EN/footer.html" style="width: 100%; height: 200px; border: none"></iframe>
 
-    <iframe
-      src="EN/footer.html"
-      style="width: 100%; height: 200px; border: none"
-    ></iframe>
+  <!-- SCRIPT FOR SLIDER - FORM THE LASTES-->
 
-    <!-- SCRIPT FOR SLIDER - FORM THE LASTES-->
+  <script>
+    // Image URLs for the first slider
+    const images1 = [
+      "https://drive.google.com/thumbnail?id=1avPkkiPUM7-SYq1rg37B5HLL2AewphXt&sz=w2000",
+      "https://drive.google.com/thumbnail?id=11vnYeP618IEJkSt-LGeYkxjWuwrcnL-p&sz=w2000",
+      "https://drive.google.com/thumbnail?id=1ijKqH3Xni1XOvhNHukbMul3i6npnztug&sz=w2000",
+      "https://drive.google.com/thumbnail?id=1arOjNJ2EkfQmZvhRZOkVdR_QW6HBBUV-&sz=w2000",
+      "https://drive.google.com/thumbnail?id=1q846Il2HKbvkO7umHx7L_KTk7-1xMtSn&sz=w2000",
+    ];
 
-    <script>
-      // Image URLs for the first slider
-      const images1 = [
-        "https://drive.google.com/thumbnail?id=1avPkkiPUM7-SYq1rg37B5HLL2AewphXt&sz=w2000",
-        "https://drive.google.com/thumbnail?id=11vnYeP618IEJkSt-LGeYkxjWuwrcnL-p&sz=w2000",
-        "https://drive.google.com/thumbnail?id=1ijKqH3Xni1XOvhNHukbMul3i6npnztug&sz=w2000",
-        "https://drive.google.com/thumbnail?id=1arOjNJ2EkfQmZvhRZOkVdR_QW6HBBUV-&sz=w2000",
-        "https://drive.google.com/thumbnail?id=1q846Il2HKbvkO7umHx7L_KTk7-1xMtSn&sz=w2000",
-      ];
-    
-      // Image URLs for the second slider
-      const images2 = [
-        "https://drive.google.com/thumbnail?id=1gmWXAikeMtcadtYo7UL8RWgTBCWrYMTU&sz=w1500",
-        "https://drive.google.com/thumbnail?id=1mq7Nr8DOxesWo0f4G2yTFLaIE_mEcS20&sz=w1500",
-        "https://drive.google.com/thumbnail?id=1FPCN8e2kNr4o47_MbYy3dG7s_id4wEVy&sz=w1500",
-        "https://drive.google.com/thumbnail?id=1auhXgQRZusracPhUd7EBE7_FYYEdxyQG&sz=w3000	",
-        "https://drive.google.com/thumbnail?id=1V0QB92ujkiQS3dstGvBAzEcNpuCXZpjC&sz=w1500",
-        "https://drive.google.com/thumbnail?id=1eRfUCQU5XD0hWYsAJ_Pna-tQVqLYuaPZ&sz=w1500",
-        "https://drive.google.com/thumbnail?id=1tp-eXj5oPk1mrLNKn40lygdBXX3KgRol&sz=w1500",
-        "https://drive.google.com/thumbnail?id=1RnC6I2Z2gjxmeF_j2Lv-AGANRg7zdhmX&sz=w1500",
-        "https://drive.google.com/thumbnail?id=1HFYlQQ4WiUoAOSwQEU_NazCffppHW5l9&sz=w1500",
-        "https://drive.google.com/thumbnail?id=1jxkE156FQL_T8rJYo1X5YI4csGcOOitt&sz=w1500",
-        "https://drive.google.com/thumbnail?id=1gKUrO4HHYQsXVU3Q8p6FMagDnmw3fPKD&sz=w1500",
-        "https://drive.google.com/thumbnail?id=19B4OwuGUSUpj1Y-SEQJuwJC06xiOD64c&sz=w2000",
-      ];
-    
-      let currentIndex1 = 0;
-      let currentIndex2 = 0;
-      
-      // Function to update the displayed image for first slider
-      function updateImage(sliderId) {
-        let imageElement = document.querySelector(`#slider${sliderId} .slider-image`);
-        let dotsContainer = document.querySelector(`#dots${sliderId}`);
-        const images = sliderId === 1 ? images1 : images2;
-        const currentIndex = sliderId === 1 ? currentIndex1 : currentIndex2;
-        
-        imageElement.src = images[currentIndex];
-        updateDots(sliderId);
+    // Image URLs for the second slider
+    const images2 = [
+      "https://drive.google.com/thumbnail?id=1gmWXAikeMtcadtYo7UL8RWgTBCWrYMTU&sz=w1500",
+      "https://drive.google.com/thumbnail?id=1mq7Nr8DOxesWo0f4G2yTFLaIE_mEcS20&sz=w1500",
+      "https://drive.google.com/thumbnail?id=1FPCN8e2kNr4o47_MbYy3dG7s_id4wEVy&sz=w1500",
+      "https://drive.google.com/thumbnail?id=1auhXgQRZusracPhUd7EBE7_FYYEdxyQG&sz=w3000	",
+      "https://drive.google.com/thumbnail?id=1V0QB92ujkiQS3dstGvBAzEcNpuCXZpjC&sz=w1500",
+      "https://drive.google.com/thumbnail?id=1eRfUCQU5XD0hWYsAJ_Pna-tQVqLYuaPZ&sz=w1500",
+      "https://drive.google.com/thumbnail?id=1tp-eXj5oPk1mrLNKn40lygdBXX3KgRol&sz=w1500",
+      "https://drive.google.com/thumbnail?id=1RnC6I2Z2gjxmeF_j2Lv-AGANRg7zdhmX&sz=w1500",
+      "https://drive.google.com/thumbnail?id=1HFYlQQ4WiUoAOSwQEU_NazCffppHW5l9&sz=w1500",
+      "https://drive.google.com/thumbnail?id=1jxkE156FQL_T8rJYo1X5YI4csGcOOitt&sz=w1500",
+      "https://drive.google.com/thumbnail?id=1gKUrO4HHYQsXVU3Q8p6FMagDnmw3fPKD&sz=w1500",
+      "https://drive.google.com/thumbnail?id=19B4OwuGUSUpj1Y-SEQJuwJC06xiOD64c&sz=w2000",
+    ];
+
+    let currentIndex1 = 0;
+    let currentIndex2 = 0;
+
+    // Function to update the displayed image for first slider
+    function updateImage(sliderId) {
+      let imageElement = document.querySelector(`#slider${sliderId} .slider-image`);
+      let dotsContainer = document.querySelector(`#dots${sliderId}`);
+      const images = sliderId === 1 ? images1 : images2;
+      const currentIndex = sliderId === 1 ? currentIndex1 : currentIndex2;
+
+      imageElement.src = images[currentIndex];
+      updateDots(sliderId);
+    }
+
+    // Function to create dots based on the number of images for the specific slider
+    function createDots(sliderId) {
+      const images = sliderId === 1 ? images1 : images2;
+      const dotsContainer = document.querySelector(`#dots${sliderId}`);
+
+      images.forEach((_, index) => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.addEventListener("click", () => goToImage(index, sliderId));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    // Function to update the active dot
+    function updateDots(sliderId) {
+      const dots = document.querySelectorAll(`#dots${sliderId} .dot`);
+      const currentIndex = sliderId === 1 ? currentIndex1 : currentIndex2;
+      dots.forEach(dot => dot.classList.remove("active-dot"));
+      dots[currentIndex].classList.add("active-dot");
+    }
+
+    // Function to go to the next image for the specific slider
+    function nextImage(sliderId) {
+      if (sliderId === 1) {
+        currentIndex1 = (currentIndex1 + 1) % images1.length;
+        updateImage(sliderId);
+      } else {
+        currentIndex2 = (currentIndex2 + 1) % images2.length;
+        updateImage(sliderId);
       }
-    
-      // Function to create dots based on the number of images for the specific slider
-      function createDots(sliderId) {
-        const images = sliderId === 1 ? images1 : images2;
-        const dotsContainer = document.querySelector(`#dots${sliderId}`);
-        
-        images.forEach((_, index) => {
-          const dot = document.createElement("span");
-          dot.classList.add("dot");
-          dot.addEventListener("click", () => goToImage(index, sliderId));
-          dotsContainer.appendChild(dot);
-        });
+    }
+
+    // Function to go to the previous image for the specific slider
+    function prevImage(sliderId) {
+      if (sliderId === 1) {
+        currentIndex1 = (currentIndex1 - 1 + images1.length) % images1.length;
+        updateImage(sliderId);
+      } else {
+        currentIndex2 = (currentIndex2 - 1 + images2.length) % images2.length;
+        updateImage(sliderId);
       }
-    
-      // Function to update the active dot
-      function updateDots(sliderId) {
-        const dots = document.querySelectorAll(`#dots${sliderId} .dot`);
-        const currentIndex = sliderId === 1 ? currentIndex1 : currentIndex2;
-        dots.forEach(dot => dot.classList.remove("active-dot"));
-        dots[currentIndex].classList.add("active-dot");
+    }
+
+    // Function to go to a specific image for the specific slider
+    function goToImage(index, sliderId) {
+      if (sliderId === 1) {
+        currentIndex1 = index;
+        updateImage(sliderId);
+      } else {
+        currentIndex2 = index;
+        updateImage(sliderId);
       }
-    
-      // Function to go to the next image for the specific slider
-      function nextImage(sliderId) {
-        if (sliderId === 1) {
-          currentIndex1 = (currentIndex1 + 1) % images1.length;
-          updateImage(sliderId);
-        } else {
-          currentIndex2 = (currentIndex2 + 1) % images2.length;
-          updateImage(sliderId);
-        }
-      }
-    
-      // Function to go to the previous image for the specific slider
-      function prevImage(sliderId) {
-        if (sliderId === 1) {
-          currentIndex1 = (currentIndex1 - 1 + images1.length) % images1.length;
-          updateImage(sliderId);
-        } else {
-          currentIndex2 = (currentIndex2 - 1 + images2.length) % images2.length;
-          updateImage(sliderId);
-        }
-      }
-    
-      // Function to go to a specific image for the specific slider
-      function goToImage(index, sliderId) {
-        if (sliderId === 1) {
-          currentIndex1 = index;
-          updateImage(sliderId);
-        } else {
-          currentIndex2 = index;
-          updateImage(sliderId);
-        }
-      }
-    
-      // Initialize both sliders
-      function initializeSliders() {
-        createDots(1);
-        createDots(2);
-        updateImage(1);
-        updateImage(2);
-        setInterval(() => nextImage(1), 5000); // First slider
-        setInterval(() => nextImage(2), 5000); // Second slider
-      }
-    
-      window.onload = initializeSliders;
-    </script>
-  </body>
+    }
+
+    // Initialize both sliders
+    function initializeSliders() {
+      createDots(1);
+      createDots(2);
+      updateImage(1);
+      updateImage(2);
+      setInterval(() => nextImage(1), 5000); // First slider
+      setInterval(() => nextImage(2), 5000); // Second slider
+    }
+
+    window.onload = initializeSliders;
+  </script>
+</body>
+
 </html>
