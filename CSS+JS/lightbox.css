@@ -141,13 +141,14 @@ html.lb-disable-scrolling {
     width: 34%;
     left: 0;
     float: left;
-    background: url(../images/prev.png) left 48% no-repeat;
+    background: url(https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/images/prev.png) left 48% no-repeat;
     filter: alpha(Opacity=0);
     opacity: 0;
     -webkit-transition: opacity .3s;
     -moz-transition: opacity .3s;
     -o-transition: opacity .3s;
-    transition: opacity .3s
+    transition: opacity .3s;
+    z-index: 1000;
 }
 
 .lb-nav a.lb-prev:hover {
@@ -159,13 +160,14 @@ html.lb-disable-scrolling {
     width: 64%;
     right: 0;
     float: right;
-    background: url(../images/next.png) right 48% no-repeat;
+    background: url(https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/images/next.png) right 48% no-repeat;
     filter: alpha(Opacity=0);
     opacity: 0;
     -webkit-transition: opacity .6s;
     -moz-transition: opacity .6s;
     -o-transition: opacity .6s;
-    transition: opacity .6s
+    transition: opacity .6s;
+    z-index: 1000;
 }
 
 .lb-nav a.lb-next:hover {
@@ -377,14 +379,16 @@ html.lb-disable-scrolling {
 .lb-prev, .lb-next {
   height: 100%;
   cursor: pointer;
-  display: block;
+  display: block !important;
+  opacity: 1 !important;
+  z-index: 10000 !important;
 }
 
 .lb-nav a.lb-prev {
   width: 34%;
   left: 0;
   float: left;
-  background: url(../images/prev.png) left 48% no-repeat;
+  background: url(https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/images/prev.png) left 48% no-repeat;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   -webkit-transition: opacity 0.3s;
@@ -402,7 +406,7 @@ html.lb-disable-scrolling {
   width: 64%;
   right: 0;
   float: right;
-  background: url(../images/next.png) right 48% no-repeat;
+  background: url(https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/images/next.png) right 48% no-repeat;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   -webkit-transition: opacity 0.6s;
